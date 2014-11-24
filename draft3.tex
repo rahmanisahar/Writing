@@ -1,0 +1,117 @@
+\documentclass[useAMS,usenatbib]{mn2e}
+%\usepackage{geometry}[left=1.5in, right=1in, bottom=1in, top=1in]
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{natbib}
+\bibliographystyle{aas}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{float}
+
+\newcommand \kpc	{\,{\rm kpc}}
+\newcommand \sigmagas    {$\Sigma_{\rm \bld {gas }}$}
+\newcommand \eqsigmagas    {\Sigma_{\rm \bld {gas }}}
+\newcommand \sigmasfr     {$\Sigma_{\rm \bld {SFR }}$}
+\newcommand \eqsigmasfr     {\Sigma_{\rm \bld {SFR }}}
+\newcommand \sigmastar    {$\Sigma_{\rm \bld {star }}$}
+\newcommand \eqsigmastar    {\Sigma_{\rm \bld {star }}}
+\newcommand \halpha    {H$\alpha$ \ }
+\newcommand \um    {$\mu$m \ }
+\newcommand \mice {$\mu$m}
+\newcommand \nprime {N$^\prime$}
+\newcommand \eqnprime {N^\prime}
+
+\begin{document}
+% TITLE
+\title[WHICH STAR FORMATION LAW IN M31]{RELATION BETWEEN STAR FORMATION RATE, GAS MASS AND STELLAR MASS IN THE ANDROMEDA GALAXY}
+\author[S. Rahmani $\&$ P. Barmby]{S.~Rahmani, P.~Barmby\\
+Department of Physics $\&$ Astronomy, University of Western Ontario, London, ON N6A 3K7, Canada}
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+\begin{abstract} % it is just my GESF2014 abstract, just for looks I will change it at the end
+ We investigate the relation between star formation rate (SFR), gas surface density (\sigmagas) and stellar surface density (\sigmastar) in the Andromeda galaxy (M31) using the Kennicutt-Schmidt (K-S) law and the extended Schmidt law. Shi et al. argued that the surface density of SFR is related not only to gas mass, as in the empirical K-S law,  but also to stellar mass surface density, in the ``extended Schmidt law''. Using all a combination of \halpha and 24 \um emission, a combination of FUV and 24 \um, and the total infrared emission, we estimate the total SFR in M31 to be between 0.35 M$_{\odot}$yr$^{-1}$ - 0.4 M$_{\odot}$yr$^{-1}$. We use maps of $^{12}$CO and 21cm emission to produce the \sigmagas map.% For regions that are not covered in the $^{12}$CO map, we used the dust map (obtained from $SPIRE$ data) as a tracer of total gas. 
+ The stellar mass surface density  map is calculated using mid-infrared IRAC imaging. Our preliminary results from testing the K-S law in M31 find a power-law index of  $N = 0.62 \pm 0.01$, at the low end of values compared with previous work. We determine additional K-S law fits using each SFR map independently with molecular hydrogen, atomic hydrogen and total gas maps. We then repeat the analysis considering the stellar mass density in order to test whether the regular or extended Schmidt laws are more appropriate for M31.
+
+\end{abstract}
+\begin{keywords}
+Galaxies: Andromeda, Star Formation
+\end{keywords}
+%----------------------------------------------------------------------------------------
+%INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+
+\section{Introduction}
+\label{sec:intro} %I can add a lot more about calculating star formation and in general why star formation is important but I don't like make my introduction too long. 
+%P1: Star formation laws and why they are important (introducing K-S law and E-S law)
+
+Empirical star formation laws, relations, has been investigated for more than 50 years, and results never been precise. Formation of stars is a complicated process. Various phenomena affect the collapse of molecular clouds and star formation which include the environment of the star-forming region, chemical compositions, the initial mass distribution of gas, gas accretion and cooling, H$_2$ formation, etc. 
+
+The first idea about scaling the star formation rate on the galaxy scale was proposed as a connection between the total star formation rate and the mass of interstellar gas. \cite{Schmidt59} assumed the constant initial mass function (IMF) of stars, $\Psi (M)$, a stellar lifetime function {$T(M$)}, and a star formation rate {$SFR(T)$} and derived the star formation rate (SFR) over the history of the Milky Way. He scaled SFR with a power {\it n} of the gas mass. $M_{gas}$. %Then $SFR(T)\Sigma_{M}(M) = c[M_{gas}(t)]^n$, for a summation over all stellar type $M$.
+A decade later, \cite{Kennicutt98a} examined another group of galaxies. He used \halpha, HI and CO observations of 61 normal spiral galaxies and 36 starburst galaxies and showed that the disk-average SFRs and gas densities for this samples are well represented by the Schmidt law with the power of $1.4 \pm 0.15$. Using this power index, the Schmidt law can be rewritten as:
+
+\begin{equation}
+\eqsigmasfr \propto \eqsigmagas^{1.4\pm0.15}
+\end{equation}
+which is often referred to as the Kennicutt-Schmidt (K-S) law, where \sigmasfr is surface density of star formation, \sigmagas is the surface density of gas in a galaxy and, {\it n} is the power index.
+
+
+In more recent studies, \cite{Kennicutt08} investigated the local star formation law in M51 with 0.5-2 kpc resolution. For the SFR he used pa${\alpha}$ and $24\mu$m + H${\alpha}$ lines and for gas density he used constant conversion factor for CO to H$_2$. He found a correlation, from the radial variation of both SFR and gas surface density, with an index of $1.56 \pm 0.04$.
+%He could not find any correlation between SFR and HI only clouds, but the correlation with the molecular cloud was about the same as the total gas.
+It should be noted that the KS law can not be applied for the whole range of gas densities. In parallel studies, the star formation threshold was introduced and it was pointed out that calculated SFR is much lower than the value predicted by the KS law at low gas densities $( < 1-10\sim$ M$_{\odot}$ pc$^{-2})$ e.g. in regions far outside the optical disk \citep[e.g.,][]{Martin01, Bigiel08}.
+
+\cite{Hunter98} have shown that, in low surface brightness galaxies the SFR density is only related to the stellar mass density. Also similar relations between stellar masses and SFR densities are seen within galaxies by \cite{Ryder94}, \cite{Hunter04} and recently by \cite{Leroy08} for specific galaxy types or limited density ranges. \cite{Shi11} found a tight relationship between stellar mass surface density, SFR and gas surface density by studying on a large sample of galaxies. They showed this relation as a power law relation and referred to it as the extended Schmidt law: 
+
+\begin{equation}
+\eqsigmasfr \propto \eqsigmagas^{\eqnprime} \eqsigmastar^{\beta}
+\end{equation}
+where \sigmasfr is SFR surface density, \sigmagas and \sigmastar are gas mass and stellar surface density. \nprime and $\beta$ are the power law indexes. Testing new relation on 60 galaxies \nprime and $\beta$ were calculated to be $\sim$ 1.4 and $\sim$ 0.6 respectively. They showed that this relation not only predicts SFR as well as the KS law for galaxies and spatially resolved regions ($\sim$1 kpc sizes) where the KS law works, but also is acceptable for low surface brightness galaxies and regions where the KS law fails.
+
+%P2: SFR, measuring, scaling, ...
+For testing any of these star formation laws, first thing one should do is calculating the SFR. Many groups are working to find a translation from the light of star forming regions in galaxies to a rate of the formation of new stars. \cite{Kennicutt98b} calibrated luminosity of galaxies as a way of measuring the SFR in specific wavelengths using relations between the SFR per unit mass or per unit luminosity and the integrated colour of the system provided by synthesis models  \citep[e.g.,][]{Bruzual93}. Afterward many other studies tried to find the similar calibration for measuring the SFR of galaxies in other bands \citep[e.g.,][]{Kennicutt12, Calzetti12, Zhu08, Kennicutt09, Boquien10, Boquien11, Hao11}. \cite{Kennicutt09} and \cite{Hao11} introduced new SFR calibration using a combination of \halpha or FUV and far infrared (FIR) emission, respectively. In addition of using suitable calibrations for each region, considering differences between global case and local ($\sim 0.5-1$ kpc) case is important. In section 3, we are talking about the SFR in the Andromeda galaxy and how we did measure it. 
+
+%P3: Gas cloud, variety, observing etc
+Calculating surface density of gas in galaxies is the other most important ingredients of testing star formation laws. Considering the effect of the interstellar medium (ISM) on studying the star formation law is important due to the fact that stars are born from the gas also release their material into the ISM when they reach the end of their evolution. A map of the total gas in the ISM is produced by direct observations of the gas or using interstellar dust as a tracer. Neutral and molecular hydrogen are the most common elements in the ISM. Therefore, for producing the map of the total gas in galaxies, maps of these two components can be added together and multiplied by a constant factor to account for heavier elements which are mostly He. Another way to do the mapping is assuming that the ratio of total gas and dust is constant across a galaxy, and convert dust observations to the map of total gas. Section 4 is about the calculation of the gas surface density for the Andromeda galaxy.
+
+
+
+%P4: Stellar mass and how to measure it
+Additionally, for testing the Extended Schmidt law, measuring the stellar mass density is necessary. Measuring the mass of the stellar population is indirect and subject to significant uncertainties. In principle there are two ways to measure stellar mass in galaxies. First is measuring the dynamical mass of galaxies using kinematics \citep{Cappellari06} or lensing \citep{Auger09}, and then modelling the mass of the dark matter and subtracting it from the measured mass. This method has been successful to predict and subtract the mass of the dark matter, which is the dominant mass in galaxies \citep{Zaritsky94},  and can easily cause uncertainties as high as the order of the measurement. 
+
+The second method is based on stellar population models \citep[e.g.][]{ Bruzual93, Kotulla09} and using them to connect stellar mass to an observable, like luminosity in different wavelengths, colours, spectral energy distribution from spectroscopy or multi-band observations. Having two independent methods to measure stellar mass helps to compare the results and check whether there are any systematic differences. Comparing the results from measuring stellar mass in stellar clusters shows there is no huge difference. Comparing the results from measuring stellar mass within galaxies shows that the deferences are on the order of a few x10 percent, so one should be more careful to model subtleties \citep{McLaughlin05}. Calculating stellar mass in the Andromeda galaxy is described in section 5.  
+
+%P5(2*): What we did and why Andromeda and
+In this project we test and compare both the K-S law and the extended Schmidt law on the Andromeda galaxy (M31). M31 is the closest spiral galaxy to the Milky Way, therefore, we can have higher resolution images of it than we have of any other spiral galaxy. Having high resolution images provides us data from different regions within
+the galaxy with different physical situations (e.g. metallicity, surface brightness and etc.). All these parameters make the Andromeda a suitable test bed for studying the scaling law.
+Furthermore, the range of the power index of K-S law calculated for the Andromeda galaxy is between 0.5 - 2 \citep[e.g.,][]{Tabatabaei10,Ford13}. Therefore, testing extended Schmidt law on the Andromeda galaxy would help to solve the problem with these controversial results.
+
+
+%----------------------------------------------------------------------------------------
+%DATA
+%----------------------------------------------------------------------------------------
+\section{Data}
+\label{sec:data}
+Since the M31 is really close to us, it was aimed by many probes and telescopes, both space based and ground based ones. This advantage, provides us variety of data from X-ray to radio wavelengths. This wide ranges of data gives us the ability to measure all the required parameters to test the star formation laws in M31. Table~\ref{table:data} lists all the data we used in this paper. Each data comes with different Full Width Half Maximum (FWHM), spacial resolution and grids. In order to make sure that all our data contains the same amount of information, we smooth them using Aniano's Kernels' library and convolution code \citep{Aniano12}, to highest resolution available. Also considering Nyquist relation \citep{Nyquist}, we re-sample and re-grid all our maps to have a proper pixel size.
+
+\subsection{Ultra Violet (UV) emission}
+\subsection{Visible light}
+\subsection{IR Data}
+\subsection{Radio Data}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
