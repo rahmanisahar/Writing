@@ -101,7 +101,7 @@ In the most recent work on the K-S law in M31, \cite{Ford13}, test this law on s
 %----------------------------------------------------------------------------------------
 \section{Data}
 \label{sec:data}
-Since the M31 is the closest spiral galaxy to MW, it was aimed by many probes and telescopes, both space based and ground based ones. This advantage, provides us variety of data from X-ray to radio wavelengths. This wide ranges of data gives us the ability to measure all the required parameters to test the star formation laws in M31. Table~\ref{table:data} lists all the data we used in this paper. Each data comes with different Full Width Half Maximum (FWHM), spacial resolution and grids. In order to make sure that all our data contains the same amount of information, we smooth them using Aniano's Kernels' library and convolution code \citep{Aniano12}, to highest resolution available. Also considering Nyquist relation \citep{Nyquist}, we re-sample and re-grid all our maps to have a proper pixel size.
+Since the M31 is the closest spiral galaxy to the Milky Way, it was aimed by many probes and telescopes, both space based and ground based ones. Therefore, variety of data from X-ray to radio wavelengths are available. Wide ranges of data provides us the ability to measure all the required parameters to test the star formation laws in M31. Table~\ref{table:data} lists all the data we used in this paper. Each data comes with different Full Width Half Maximum (FWHM), spacial resolution and grids. In order to make sure that all our data contains the same amount of information, we smoothed them using Aniano's Kernels' library and convolution code \citep{Aniano12}, to highest resolution available. Moreover, considering Nyquist relation \citep{Nyquist}, we re-sampled and re-gridded all our maps to have a proper pixel size.
 
 \begin{table}
 \caption{Data used in this study.}
@@ -110,7 +110,7 @@ Since the M31 is the closest spiral galaxy to MW, it was aimed by many probes an
 \hline\hline
 Wavelength & FWHM & Telescope
 & Ref. \\
-\hline
+\hlin
 %500 \um & 36\arcsec & $Herschel$ & \cite{Fritz12} \\
 %350 \um & 24\arcsec.5 & $Herschel$ & \cite{Fritz12} \\
 %250 \um & 18\arcsec.2 & $Herschel$ & \cite{Fritz12} \\
@@ -133,10 +133,10 @@ Wavelength & FWHM & Telescope
 %PB: this means that number and unit don't end up on separate lines
 \subsection{Ultra Violet (UV) emission}
 
-One of the calibrations we used to calculate SFR uses FUV emission as a tracer of the star forming regions. FUV emission of M31 was observed by Galaxy Evolution Explorer ($GALEX$; \citep{Martin05}). $GALEX$ telescope data contains information for two bands, FUV:1350-1750 and NUV:1750-2750~\AA, with FWHM of 4\arcsec .5, and 6 \arcsec.
+One of the calibrations, which was used to calculate SFR, uses FUV emission as a tracer of the star forming regions. FUV emission of M31 was observed by Galaxy Evolution Explorer ($GALEX$; \citep{Martin05}). $GALEX$ telescope data contains information for two bands, FUV:1350-1750 and NUV:1750-2750~\AA, with FWHM of 4\arcsec .5, and 6 \arcsec.
 
 \subsection{Visible light}
-Our other method to calculate the SFR was using a combination of \halpha emission and 24\um emission. \cite{Massey06, Massey07} mapped UBVRI and \halpha emission line of M31 as part of the Nearby Galaxies Survey using KPNO telescope. \halpha maps, which were obtained from NOAO science archive are available in 10 overlapping fields. Mosaic image of the maps were created using Montage \citep{Montage}. Assuming that all stars have the same fraction of \halpha light in their spectra, we subtracted the R band emission from the \halpha using averaged scaling factor between R band images and \halpha provided by \cite{Azimlu11}. We also took masked map of stars from \cite{Azimlu11} and masked all point sources (Figure~\ref{fig:halpha}). Details of making the making \halpha map can be find in the Appendix ~\ref{appendix: halpha}.
+Our other method to calculate the SFR was using a combination of \halpha emission and 24\um emission. \cite{Massey06, Massey07} mapped UBVRI and \halpha emission line of M31 as part of the Nearby Galaxies Survey using KPNO telescope. \halpha maps, which were obtained from NOAO science archive are available in 10 overlapping fields. We created a Mosaic image of the maps using Montage \citep{Montage}. Assuming that all stars have the same fraction of \halpha light in their spectra, we subtracted the R band emission from the \halpha using averaged scaling factor between R band images and \halpha provided by \cite{Azimlu11}. We also took masked map of stars from \cite{Azimlu11} and masked all point sources (Figure~\ref{fig:halpha}). Details of making the making \halpha map can be find in the Appendix ~\ref{appendix: halpha}.
 
 \subsection{IR and sub mm Data}
 In IR and sub mm bands both $Spitzer$ \citep{Wener04} and $Herschel$ \citep{Pilbratt10}  space telescopes observed the M31. The Infrared Array Camera (IRAC; \citep{Fazio04}) on the $Spitzer$ is a camera observing at four channels (3.6, 4.5, 5.8, and 8 \um). IRAC observation of M31 were obtained by \cite{Barmby06}, which covered $3\degr.7 \times 1\degr.6$. IRAC 3.6 and 4.5\um bands  were used to calculate the stellar mass. Multiband Imaging Photometer for Spitzer (MIPS) observed the  M31 at 24, 60, and 160\um and covered region $\sim 1\degr \times 3\degr$ \citep{Gordon06}.
@@ -161,31 +161,32 @@ Emission from $^{12}$CO(J:$1\rightarrow0$) line which, was observed on-the-fly w
 \section{Star Formation Rate}
 \subsection{FUV plus 24\um Star Formation Rate}
 
-In this project first star formation map is produced using a calibration of a combination of the FUV emission and 24\um emission introduced by \cite{Hao11}. Since peak of the emission of massive and young stars (O - B and A type) are in the UV, this wavelength is one of the most common used star formation rate indicators \citep[e.g.,][]{Kennicutt89}. The UV indicates star forming region with age of $\sim 100$ Myr \citep[e.g.,][]{Kennicutt98, Calzetti05}. However, downside of only using the FUV light as a tracer of star forming region is that this emission is really sensitive to dust extinction. On the other hand 24\um emission is dominated by emission from dust heated by UV photons from young and hot stars. This emission is sensitive to star formation time scale of $\la10$ Myr \citep{Calzetti07}.
-The FUV band of \Galex and the 24\um band of \Spitzer data was used to measure the SFR calibrated by \cite{Hao11} as follow:
+In this project first star formation map was produced using a calibration of a combination of the FUV emission and 24\um emission introduced by \cite{Hao11}. Since peak of the emission of massive and young stars (O - B and A type) are in the UV, this wavelength is one of the most common used star formation rate indicators \citep[e.g.,][]{Kennicutt89}. The UV indicates star forming region with age of $\sim 100$ Myr \citep[e.g.,][]{Kennicutt98, Calzetti05}. However, downside of only using the FUV light as a tracer of star forming region is that this emission is really sensitive to dust extinction. On the other hand 24\um emission is dominated by emission from dust heated by UV photons from young and hot stars. This emission is sensitive to star formation time scale of $\la10$ Myr \citep{Calzetti07}.
+The FUV band of \Galex and the 24\um band of \Spitzer ~ data was used to measure the SFR calibrated by \cite{Hao11} as follow:
 \begin{equation}
 \label{equ: fuvplus24}
 SFR =4.46\times10^{-44}[L(FUV)_{obs}+3.89L(24\mu m)]
 \end{equation}
-where unit of SFR is M$_{\odot}$yr$^{-1}$, and L(24$\mu$m) is in erg/s. $L(FUV)_{obs}$ is the luminosity of galaxy in the FUV emission. The index of obs is shown to indicate that the FUV emission is not corrected for effect of extinction. Nevertheless, this emission is corrected for the foreground stars emission. To do so, we followed a method introduced by \cite{Leroy08}. We assumed for any pixel, in maps with pixel size the same as the pixel size of NUV map, if I$_{NUV}$/I$_{FUV}$ $>$ 15 that pixel value is dominated by foreground emission and masked them out. We also masked the same region in the galaxy for 24\um map.
+where unit of SFR is M$_{\odot}$yr$^{-1}$, and L(24$\mu$m) and L(FUV)$_{obs}$ are in erg/s. L(FUV)$_{obs}$ is the luminosity of galaxy in the FUV emission. The index of obs is shown to indicate that the FUV emission is not corrected for effect of extinction. Nevertheless, this emission is corrected for the foreground stars emission. To do so, we followed a method introduced by \cite{Leroy08}. We assumed for any pixel in FUV$_{obs}$ map, %which has a pixel size equals the pixel size of NUV map,
+if I$_{NUV}$/I$_{FUV}$ $>$ 15 that pixel value is dominated by foreground emission and masked them out. We also masked the same region in the galaxy for 24\um map. Using this method, we calculated the total SFR is 0.31\pm 0.04 M$_{\odot}$yr$^{-1}$.
 
 %----------------------------------------------------------------------------------------
 \subsection{\halpha plus 24\um Star Formation Rate}
 \label{sec:sfr_halpha}
 
-The SFR can be calculated using combination of \halpha and $Spitzer$ 24\um maps. \halpha emission of galaxies is dominated by light emitted from young and massive stars. Star formation time scaled traced by this emission is $\sim 6-10$ Myr \citep[e.g.,][]{Kennicutt09, Calzetti12}. Therefore \halpha alone could be used to calibrate the SFR \citep[e.g.,][]{Osterbrock06, Kennicutt09}. However, \halpha emission is very sensitive to dust extinction,too. Therefore, combination of the \halpha and 24\um of is considerable choice for calculating the SFR. we used calibration introduced by \cite{Kennicutt09} to measure the SFR:
+The SFR can be calculated using combination of \halpha and \Spitzer 24\um maps. \halpha emission of galaxies is dominated by light emitted from young and massive stars. Star formation time scaled traced by this emission is $\sim 6-10$ Myr \citep[e.g.,][]{Kennicutt09, Calzetti12}. Therefore \halpha alone could be used to calibrate the SFR \citep[e.g.,][]{Osterbrock06, Kennicutt09}. However, \halpha emission is very sensitive to dust extinction,too. Therefore, combination of the \halpha and 24\um of is considerable choice for calculating the SFR. we used calibration introduced by \cite{Kennicutt09} to measure the SFR:
 \begin{equation}
 \label{equ: halphaplus24_g}
 SFR = 5.5 \times 10^{-42}[L(H{\alpha})_{obs} + 0.020L(24\mu m)]
 \end{equation}
-where L(H${\alpha}$)$_{obs}$ is the observed H${\alpha}$ luminosity without correction for internal dust attenuation, given in the unit of erg/s. L(24$\mu$ m) is the $24\mu$m IR luminosity in erg/s, and SFR is in M$_{\odot}$yr$^{-1}$. It was indicated that the formulation above can only be used at global situation (i.e. total SFR).
+where L(H${\alpha}$)$_{obs}$ is the observed H${\alpha}$ luminosity without correction for internal dust attenuation, given in the unit of erg/s. L(24$\mu$m) is the $24\mu$m IR luminosity in erg/s, and SFR is in M$_{\odot}$yr$^{-1}$. It was indicated that the formulation above can only be used at global situation (i.e. total SFR).
 
 \cite{Calzetti07} introduced a new calibration using the same bands in case of local regions (figure ~\ref{fig:sfr_halpha}):
 \begin{equation}
 \label{equ: halphaplus24_l}
 SFR = 5.5 \times 10^{-42}[L(H{\alpha})_{obs} + 0.033L(24\mu m)]
 \end{equation}
-units here are the same as equation~\ref{equ: halphaplus24_g}. Equation~\ref{equ: halphaplus24_l} is useful for regions less than $\sim 1$ kpc. According to  \cite{Calzetti07} calibration constant in equations ~\ref{equ: halphaplus24_g} and ~\ref{equ: halphaplus24_l} can be different by changing an IMF. Changes in the IMF mostly affect on calibration based on \halpha luminocity, mostly because significant amount of the ionising photons comes from the stars more massive than $\sim 20$M$\sun$. Changing the calibration constant would change the total SFR by a factor of 1.5. In this paper we used \cite{Kroupa01} IMF with upper mass limit of 100M$\sun$. Total SFR calculated from equation~\ref{equ: halphaplus24_g} is 0.35 M$\sun$yr$^{-1}$, which is in good agreement with previous studies.
+units here are the same as equation~\ref{equ: halphaplus24_g}. Equation~\ref{equ: halphaplus24_l} is useful for regions less than $\sim 1$ kpc. According to  \cite{Calzetti07} calibration constant in equations ~\ref{equ: halphaplus24_g} and ~\ref{equ: halphaplus24_l} can be different by changing an IMF. Changes in the IMF mostly affect on calibration based on \halpha luminosity, mostly because significant amount of the ionising photons comes from the stars more massive than $\sim 20$M$\sun$. Changing the calibration constant would change the total SFR by a factor of 1.5. In this paper we used \cite{Kroupa01} IMF with upper mass limit of 100M$\sun$. Total SFR calculated from equation~\ref{equ: halphaplus24_g} is 0.35 \pm 0.01 M$\sun$yr$^{-1}$, which is in good agreement with previous studies.
 %PB: can you put uncertainties on the total SFR numbers?
 
 \subsection{Total Infrared Star Formation Rate}
@@ -198,42 +199,13 @@ SFR(\rm TIR) = 2.8 \times10^{-44}L(\rm TIR)
 \end{equation}
 where SFR(TIR) and L(TIR), star formation rate calculated from TIR emission and TIR luminosity are in M$_{\odot}$yr$^{-1}$ and erg/s respectively.
 
-%PB: I like this figure! Looks nice.
-\begin{figure*}
-        \centering
-        \begin{subfigure}\\(a){}
-                \includegraphics[width=164mm]{sfr_fuv.eps}
-                %\caption{A gull}
 
-               \label{fig:sfr_halpha}
-        \end{subfigure}
-        \begin{subfigure}\\(b){}
-                \includegraphics[width=164mm]{sfr_halpha.eps}
-                %\caption{A gull}
-
-               \label{fig:sfr_halpha}
-        \end{subfigure}
-       % \quad
-        %add desired spacing between images, e. g. ~, \quad, \qquad etc.
-          %(or a blank line to force the subfigure onto a new line)
-        \begin{subfigure}\\(c){}
-                \includegraphics[width=164mm]{sfr_fir.eps}
-                %\caption{A tiger}
-
-                \label{fig:sfr_fir_small}
-        \end{subfigure}
-         \quad
-               \caption{SFR map from a combination of \halpha and 24\um emission (top) and total infrared emission (bottom)}
-\label{ISOnIRS}
-\end{figure*}
-
-
-IR luminosity can be measured from integration of IR part of a spectral energy distribution (SED) of a galaxy or combining photometry datas in different IR wavelengths. For second approach \cite{Draine07} modelled $Spitzer$ data and calibrated IR single-band photometry data to calculate the TIR luminosity. \cite{Boquien10} tested and modified this calibration as:
+IR luminosity can be measured from integration of IR part of a spectral energy distribution (SED) of a galaxy or combining photometry datas in different IR wavelengths. For second approach \cite{Draine07} modelled \Spitzer data and calibrated IR single-band photometry data to calculate the TIR luminosity. \cite{Boquien10} tested and modified this calibration as:
 \begin{equation}
  \label{equ: TIR}
 L(\rm TIR) = 0.95L(8) + 1.15L(24) + L(70) + L(160)
 \end{equation}
-where L(8 \um),L(24 \um), L(70 \um) and L(160\um) are luminosities of galaxy in 8 \um, 24 \um, 70 \um and 160 \um in unit of erg/s. We used equation ~\ref{equ:sfr_fir} to calculate second map of SFR of M31 (figure ~\ref{fig:sfr_fir_small}). Using this method we calculated the total SFR 0.40 M$_{\odot}$yr$^{-1}$. Table ~\ref{table:sfr} compares total SFR from literature and current work.
+where L(8 \um),L(24 \um), L(70 \um) and L(160\um) are luminosities of galaxy in 8 \um, 24 \um, 70 \um and 160 \um in unit of erg/s. We used equation ~\ref{equ:sfr_fir} to calculate second map of SFR of M31 (figure ~\ref{fig:sfr_fir_small}). Using this method we calculated the total SFR 0.40 \pm 0.04 M$_{\odot}$yr$^{-1}$. Table ~\ref{table:sfr} compares total SFR from literature and current work.
 
 \begin{table*}
 \begin{minipage}{100mm}
@@ -257,6 +229,32 @@ Current work&TIR luminosity&0.4\\
 \end{minipage}
 \end{table*}
 
+
+%PB: I like this figure! Looks nice.
+\begin{figure*}
+        \centering
+        \begin{subfigure}\\(a){}
+                \includegraphics[width=164mm]{sfr_fuv.eps}
+                %\caption{A gull}
+
+               \label{fig:sfr_halpha}
+        \end{subfigure}
+        \begin{subfigure}\\(b){}
+                \includegraphics[width=164mm]{sfr_halpha.eps}
+                %\caption{A gull}
+
+               \label{fig:sfr_halpha}
+        \end{subfigure}
+        \begin{subfigure}\\(c){}
+                \includegraphics[width=164mm]{sfr_fir.eps}
+                %\caption{A tiger}
+
+                \label{fig:sfr_fir_small}
+        \end{subfigure}
+         \quad
+               \caption{SFR map from a combination of FUV + 24\um emission (top), \halpha and 24\um emission (middle), and total infrared emission (bottom)}
+\label{fig:sfrs}
+\end{figure*}
 %----------------------------------------------------------------------------------------
 %ISM
 %----------------------------------------------------------------------------------------
@@ -271,7 +269,7 @@ Current work&TIR luminosity&0.4\\
 %\subsubsection*{Molecular Clouds}
 %PB: these two paragraphs contain a lot of background information that could either be moved to the
 %PB introduction or be omitted; this info doesn't belong here.
- %The molecular form of hydrogen in the ISM has no permanent electric dipole moment, which makes it really hard to detect. H$_2$ molecules are located in cool and dense molecular clouds, but fortunately they are not the only component of the molecular gas. The second dominant component, helium, is a mono-atomic gas and has the same problem as hydrogen, but the molecular gas also contains heavier elements such as carbon and oxygen which are combined to form CO \citep{Bolato13}.
+ The molecular form of hydrogen in the ISM has no permanent electric dipole moment, which makes it really hard to detect. H$_2$ molecules are located in cool and dense molecular clouds, but fortunately they are not the only component of the molecular gas. The second dominant component, helium, is a mono-atomic gas and has the same problem as hydrogen, but the molecular gas also contains heavier elements such as carbon and oxygen which are combined to form CO \citep{Bolato13}.
 
 CO has a weak permanent electric dipole moment and a ground rotational transition with low excitation energy. Given its low energy and critical density, CO can easily be excited even in cold molecular clouds. Hence CO (usually the $J(1\rightarrow 0)$ rotational transition, observed at 2.6 mm) is used as a tracer of the mass of the molecular cloud dominated by molecular hydrogen \citep[see, for example,][] {Sanders84}. Higher rotational transition of CO can be used as a tracer as well, but they are not as common as the $J(1\rightarrow 0)$. The relation between CO emission and H$_2$ cloud mass is shown as
 
@@ -292,24 +290,24 @@ where  factor of 1.36 is a constant to consider He and the other heavier element
 %----------------------------------------------------------------------------------------
 \section{Stellar Mass}
 \label{starmass}
-Stellar mass can be measured using a suitable calibration between flux/luminosity of stars in specific wavelengths and stellar mass. The basic idea behind these kind of calibrations comes from the fact that one can use the star formation histories recovered from synthesizing the stellar optical colour magnitudes in different regions in the galaxies. The calculated stellar mass can be used  to calibrate the fluxes from the stars as the easily measurable parameters of stars. Using NIR bands, different groups tried to make a map of stellar mass distributions within galaxies \citep[e.g.,][]{Elmgreen84}.  Using $B-V$ colours \citep{Bell01} and $Spitzer$ 3.6- and 4.5-\um, M/L correction, \cite{Kendall08} produced stellar mass surface densities of M81. %PB: do you mean M81 here? If so, it's not quite clear why you're mentioning a different galaxy.
+Stellar mass can be measured using a suitable calibration between flux/luminosity of stars in specific wavelengths and stellar mass. The basic idea behind these kind of calibrations comes from the fact that one can use the star formation histories recovered from synthesizing the stellar optical colour magnitudes in different regions in the galaxies. The calculated stellar mass can be used  to calibrate the fluxes from the stars as the easily measurable parameters of stars. Using NIR bands, different groups tried to make a map of stellar mass distributions within galaxies \citep[e.g.,][]{Elmgreen84}.%  Using $B-V$ colours \citep{Bell01} and $Spitzer$ 3.6- and 4.5-\um, M/L correction, \cite{Kendall08} produced stellar mass surface densities of M81. %PB: do you mean M81 here? If so, it's not quite clear why you're mentioning a different galaxy.
 
-We calculated the stellar mass work using calibration of the 3.6\um fluxes by \cite{Eskew12}. They used 3.6\um fluxes for calibration of the stellar mass, because this band-pass is almost insensitive to the emission from young stellar population, dust absorption and emission. By using data from the large Magellanic cloud, they find an empirical relation between stellar mass and luminosity of stars as following:
+We calculated the stellar mass within the M31 using calibration of the 3.6\um flux by \cite{Eskew12}.  Since 3.6\um flux is almost insensitive to the emission from young stellar population, dust absorption and emission, this band-pass was used for the calibration of the stellar mass. By using data from the large Magellanic cloud, they find an empirical relation between stellar mass and luminosity of stars as following:
 
 \begin{equation}
 \label{equ:eskew}
 M _{\star}= 10^{5.97} F_{3.6}(\frac{D}{0.05})^2
 \end{equation}
 
-where M$_{\star}$ is the stellar mass in mass of The Sun, $F_{3.6}]$ is the 3.6\um flux in $Jy$ , and D in the distance of the galaxy in Mpc. Figure ~\ref{fig:stellarmass} shows the stellar mass map for M31 using IRAC 3.6\um.
+where M$_{\star}$ is the stellar mass in mass of The Sun, $F_{3.6}$ is the 3.6\um flux in $Jy$ , and D in the distance of the galaxy in Mpc. Figure ~\ref{fig:stellarmass} shows the stellar mass map for M31 using IRAC 3.6\um. Using this method we calculated the total stellar mass of galaxy is $6.9 \times 10^{10}$M$_{\odot}$ with 6$\%$ uncertainty. This result is consistent with the result from \cite{Tamm2012}. They calculated that stellar mass in the M31 is $(10-15) \times 10^{10}$M$_{\odot}$ 56$\%$ which is in the disk and the rest is in the bulge of the galaxy.   %PB: need to compare with other results, as you did with SFR. 
 \begin{figure*}
 \centering
 \includegraphics[width=164mm]{star.eps}
-\caption{Stellar Mass surface density. This mass is produced using $IRAC$ 3.6 $\mu$ m data and equation ~\ref{equ:eskew}}
+\caption{Stellar Mass surface density. This mass is produced using $IRAC$ 3.6 $\mu$ m data and its calibration presented in equation ~\ref{equ:eskew}}
 \label{fig:stellarmass}
 \end{figure*}
 
-Using this method we calculated the total stellar mass of galaxy is $6.9 \times 10^{10}$ with 6$\%$ uncertainty. %PB: need to compare with other results, as you did with SFR.
+
 %----------------------------------------------------------------------------------------
 %SFR LAWS
 %----------------------------------------------------------------------------------------
