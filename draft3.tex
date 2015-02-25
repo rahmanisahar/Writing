@@ -7,6 +7,10 @@
 \usepackage{amsmath}
 \usepackage{times}
 \usepackage{float}
+\usepackage{caption}
+%\usepackage[caption=false]{subfig}
+\usepackage{subcaption}
+\usepackage{multirow}
 
 \newcommand \kpc        {\,{\rm kpc}}
 \newcommand \sigmagas    {$\Sigma_{\rm \bld {gas }}$\ }
@@ -112,7 +116,7 @@ Since the M31 is the closest spiral galaxy to the Milky Way, it was aimed by man
 \hline\hline
 Wavelength & FWHM & Telescope
 & Ref. \\
-\hlin
+\hline
 %500 \um & 36\arcsec & $Herschel$ & \cite{Fritz12} \\
 %350 \um & 24\arcsec.5 & $Herschel$ & \cite{Fritz12} \\
 %250 \um & 18\arcsec.2 & $Herschel$ & \cite{Fritz12} \\
@@ -233,29 +237,31 @@ Current work&TIR luminosity&0.4\\
 
 
 %PB: I like this figure! Looks nice.
+
 \begin{figure*}
+    \centering
+    \begin{subfigure}[b]{1\textwidth}
         \centering
-        \begin{subfigure}\\(a){}
-                \includegraphics[width=164mm]{sfr_fuv.eps}
-                %\caption{A gull}
-
-               \label{fig:sfr_halpha}
-        \end{subfigure}
-        \begin{subfigure}\\(b){}
-                \includegraphics[width=164mm]{sfr_halpha.eps}
-                %\caption{A gull}
-
-               \label{fig:sfr_halpha}
-        \end{subfigure}
-        \begin{subfigure}\\(c){}
-                \includegraphics[width=164mm]{sfr_fir.eps}
-                %\caption{A tiger}
-
-                \label{fig:sfr_fir_small}
-        \end{subfigure}
-         \quad
-               \caption{SFR map from a combination of FUV + 24\um emission (top), \halpha and 24\um emission (middle), and total infrared emission (bottom)}
-\label{fig:sfrs}
+        \includegraphics[width=164mm]{sfr_fuv.eps}
+        \caption{SFR,FUV+24\um}
+        \label{fig:sfr,fuv}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{1\textwidth}
+        \centering
+        \includegraphics[width=164mm]{sfr_halpha.eps}
+        \caption{SFR,H$_{\alpha}$}
+        \label{fig:sfr_halpha}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{1\textwidth}
+        \centering
+        \includegraphics[width=164mm]{sfr_fir.eps}
+        \caption{SFR,TIR}
+        \label{fig:sfr,fir}
+    \end{subfigure}
+    \caption{SFR map from a combination of FUV + 24\um emission (top), \halpha and 24\um emission (middle), and total infrared emission (bottom)}
+    \label{fig:sfrs}
 \end{figure*}
 %----------------------------------------------------------------------------------------
 %ISM
@@ -324,7 +330,7 @@ We can re-write equations ~\ref{equ:ks_org} and ~\ref{equ:es_org} in a logarithm
 
 \begin{figure*}
 \centering
-\includegraphics{ks_tot_compt.png}
+\includegraphics[width=164mm]{ks_all_1.png}
 \caption{The result from fitting the Kennicutt-Schmidt law on data from whole galaxy using pixel by pixel method. Plots have a different pixel size. Each point in the plots with the surface density of H2 as a tracer of gas mass represents regions $~$ Kpc and points in plots with surface density of HI or total gas mass, represeents region in $~$Kpc.} 
 \label{fig:ks,all}
 \end{figure*}
@@ -372,32 +378,12 @@ In total, we produced 72 different plots which, show either the K-S law or the e
 Figure ~\ref{fig:ks,tot} shows the pixel by pixel fitting of the K-S law on the whole galaxy. First row plots are the surface density of the SFR(TIR), which is calculated using  the TIR emission form section ~\ref{sec:sfr_fir}, versus the gas surface density traced by only the molecular gas (H$_2$),  only atomic gas (HI), and total gas from right to left, respectivly. The only difference between the upper and lower plots is that in lower row the SFR indicators is the FUV plus 24\um emission. Figure ~\ref{fig:ks,regs} is the same as figure ~\ref{fig:ks,all}. However, in this figure we separated pixels from different regions in galaxy by their colours. The regions with R less than 8$\kpc$, $8\kpc < $R $< 18\kpc$, and $18\kpc <$ R $\la 25\kpc$ are shown in red, green and blue, respectively. 
 
 
-% \begin{figure*}
-% %\centering
-% \includegraphics{ks_8kpc_all.png}
-% \caption{same as figure ~\ref{fig:ks,tot}, but for the regions with R less than 8$\kpc$ }
-% \label{fig:ks,8}
-% \end{figure*}
-
-% \begin{figure*}
-% %\centering
-% \includegraphics{ks_8kpc_18kpc_all.png}
-% \caption{same as figure ~\ref{fig:ks,tot}, but for the regions with $8\kpc < $R $< 18\kpc$}
-% \label{fig:ks,18}
-% \end{figure*}
-
-% \begin{figure*}
-% %\centering
-% \includegraphics{ks_18kpc_25kpc_all.png}
-% \caption{same as figure ~\ref{fig:ks,tot}, but for the regions with $18\kpc <$ R $\la 25\kpc$}
-% \label{fig:ks,25}
-% \end{figure*}
-
 \begin{figure*}
-\includegraphics[width=164mm]{c3d_all_ks_regs.png}
-\caption{same as figure ~\ref{fig:ks,tot}, but in this figure we separated pixels from different regions in galaxy by their colours. The regions with R less than 8$\kpc$, $8\kpc < $R $< 18\kpc$, and $18\kpc <$ R $\la 25\kpc$ are shown in red, green and blue, respectively.}
+\includegraphics[width=164mm]{c3d_all_ks_regs_1.png}
+\caption{same as figure ~\ref{fig:ks,all}, but in this figure we separated pixels from different regions in galaxy by their colours. The regions with R less than 8$\kpc$, $8\kpc < $R $< 18\kpc$, and $18\kpc <$ R $\la 25\kpc$ are shown in red, green and blue, respectively.}
 \label{fig:ks,regs}
 \end{figure*}
+
 
 We took the similar approach for the extended Schmidt law. Figures ~\ref{fig:es,all} to ~\ref{fig:es,regs,fuv,tot} show the results of the pixel by pixel fitting of this law. For the extended Schmidt law fittings, we plotted our results in 3D to illustrate the relationship between the surface density of the SFR, the gas mass surface density, and stellar mass density more clearly. In these series of plots, X-axis is the gas mass  surface density, either molecular gas (H$_2$), the atomic gas (HI) or the total gas, Y-axis is the SFR(TIR) or SFR(FUV + 24 $\mu$m), and Z-axis is the stellar mass surface density. Shadows of our data on each surface are also plotted, to have a more clear picture of correlations between components . For a comparison, one cane asily conclude that shadows on a X-Y surface is a reproduction of K-S law. Colours used in plots ~\ref{fig:es,regs,fir,h2} to ~\ref{fig:es,regs,fuv,tot} are the same as colours in  ~\ref{fig:ks,regs}.
 
@@ -408,49 +394,86 @@ We took the similar approach for the extended Schmidt law. Figures ~\ref{fig:es,
 
 %We did the same for the extended Schmidt law including stellar mass map to our other maps (fig. ~\ref{fig:es-law}), results are listed in table ~\ref{table:sf-laws_pix} and table ~\ref{table:sf-laws_cat} .
 
-
-\begin{figure}
-	\begin{subfigure}\\(a){}
-  	\left
-	\includegraphics[width=80mm]{es_tot_fuv_vs_h2.png}
- 	\end{subfigure}%
-
-	 \begin{subfigure}\\(b){}
-	\right
-	\includegraphics[width=80mm]{es_tot_fir_vs_h2.png}
- 	\end{subfigure}
-	
-	 \begin{subfigure}\\(c){}
- 	\left
-	\includegraphics[width=80mm]{es_tot_fir_vs_hi.png}
- 	\end{subfigure}
-
- 	\begin{subfigure}\\(d){}
-   	\right
-	\includegraphics[width=80mm]{es_tot_fuv_vs_hi.png}
- 	\end{subfigure}
-
- 	\begin{subfigure}\\(e){}
-   	\left
-	\includegraphics[width=80mm]{es_tot_fir_vs_tot.png}
- 	\end{subfigure}
-
- 	\begin{subfigure}\\(f){}
-   	\right
-	\includegraphics[width=80mm]{es_tot_fuv_vs_tot.png}
-	 \end{subfigure}
-
-\caption{The result from fitting the extended Schmidt law on data from whole galaxy using pixel by pixel method. Plots have a different pixel size. Each point in the plots with the surface density of H2 as a tracer of gas mass represents regions $~$ Kpc and points in plots with surface density of HI or total gas mass, represeents region in $~$Kpc.}
-%PB: explain a little more here what you mean by "plots have different pixel size", or refer to the relevant text section.
-   \label{fig:es,all}
- \end{figure}
-
 \begin{figure*}
-\centering
-\includegraphics[width=162mm]{c3d_fuv_tot.png}
-\caption{Fitting result from the SFR(FUV + 24 $\mu$m) vs total gas.}
-\label{fig:es,regs,fuv,tot}
+    \centering
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{es_tot_fir_vs_h2.png}
+        \caption{SFR,TIR vs surface density of H$_2$}
+        \label{fig:es,all,fir,h2}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{es_tot_fuv_vs_h2.png}
+        \caption{SFR,FUV+24\um vs surface density of H$_2$}
+        \label{fig:es,all,fuv,h2}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{es_tot_fir_vs_hi.png}
+        \caption{SFR,TIR vs surface density of HI}
+        \label{fig:es,all,fir,hi}
+    \end{subfigure}
+     \centering
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{es_tot_fuv_vs_hi.png}
+        \caption{SFR,FUV+24\um vs surface density of HI}
+        \label{fig:es,all,fuv,hi}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{es_tot_fir_vs_tot.png}
+        \caption{SFR,TIR vs surface density of total gas}
+        \label{fig:es,all,fir,tot}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{es_tot_fuv_vs_tot.png}
+        \caption{SFR,FUV+24\um vs surface density of total gas}
+        \label{fig:es,all,fuv,tot}
+    \end{subfigure}
+    \caption{The result from fitting the extended Schmidt law on data from whole galaxy using pixel by pixel method. Plots show SFR vs surface density of gas, and z-axis is surface density of the stellar mass. Each figure shows different combination of the SFR tracer and gas mass tracer results. Plots have a different pixel size. Each point in the plots with the surface density of H2 as a tracer of gas mass represents regions $\sim$30~Kpc and points in plots with surface density of HI or total gas mass, represents region in $\sim$155~Kpc.}
+    \label{fig:es,all}
 \end{figure*}
+
+
+
+% \begin{figure*}
+% \centering
+% \includegraphics[width=162mm]{c3d_fir_h2.png}
+% \caption{Fitting result from the SFR(TIR) vs H$_{2}$.}
+% \label{fig:es,regs,fir,h2}
+% \end{figure*}
+
+
+% \begin{figure*}
+% \centering
+% \includegraphics[width=162mm]{c3d_fuv_h2.png}
+% \caption{Fitting result from the SFR(FUV + 24 $\mu$m) vs H$_{2}$.}
+% \label{fig:es,regs,fuv,h2}
+% \end{figure*}
+
+
+
+% \begin{figure*}
+% \centering
+% \includegraphics[width=162mm]{c3d_fir_hi.png}
+% \caption{Fitting result from the SFR(TIR) vs HI.}
+% \label{fig:es,regs,fir,hi}
+% \end{figure*}
+
+
+% \begin{figure*}
+% \centering
+% \includegraphics[width=162mm]{c3d_fuv_hi.png}
+% \caption{Fitting result from the SFR(FUV + 24 $\mu$m) vs HI.}
+% \label{fig:es,regs,fuv,hi}
+% \end{figure*}
+
 
 \begin{figure*}
 \centering
@@ -461,106 +484,51 @@ We took the similar approach for the extended Schmidt law. Figures ~\ref{fig:es,
 
 \begin{figure*}
 \centering
-\includegraphics[width=162mm]{c3d_fir_hi.png}
-\caption{Fitting result from the SFR(TIR) vs HI.}
-\label{fig:es,regs,fir,hi}
+\includegraphics[width=162mm]{c3d_fuv_tot.png}
+\caption{Fitting result from the SFR(FUV + 24 $\mu$m) vs total gas.}
+\label{fig:es,regs,fuv,tot}
 \end{figure*}
 
 
-\begin{figure*}
-\centering
-\includegraphics[width=162mm]{c3d_fir_h2.png}
-\caption{Fitting result from the SFR(TIR) vs H$_{2}$.}
-\label{fig:es,regs,fir,h2}
-\end{figure*}
 
-
-\begin{figure*}
-\centering
-\includegraphics[width=162mm]{c3d_fuv_hi.png}
-\caption{Fitting result from the SFR(FUV + 24 $\mu$m) vs HI.}
-\label{fig:es,regs,fuv,hi}
-\end{figure*}
-
-\begin{figure*}
-\centering
-\includegraphics[width=162mm]{c3d_fuv_h2.png}
-\caption{Fitting result from the SFR(FUV + 24 $\mu$m) vs H$_{2}$.}
-\label{fig:es,regs,fuv,h2}
-\end{figure*}
-
-
-%PB: in these tables, having the numbers all in the same format  (eg with or without the 1e-2
-%PB type notation) makes it easier to compare. Negative numbers should be written $-x.xx$.
-%THE REST WOULD BE THE comparison of the results:
-\begin{table*}
-\caption{global fitting parameters of the SF laws from applying the Bayesian fitting.}
-\label{table:sf-laws_all}
-\begin{tabular}{@{}lccccccccccc}
-\hline\hline
-SFR Tracer& Gas Tracer & N & \sigma$_N$ & $\log$(const$_{KS}$)& \nprime & $\sigma_{\eqnprime}$ & \beta& \sigma$_\beta$&$\log$(const$_{ES}$)&$\sigma_{scatter}$ \\
-\hline
-FIR&H$_2$only&1.03 &9.47e-3 &-8.92 &0.95 &9.78e-3 &0.34 &4.25 &-9.57 & & &
-FIR&HI only& 1.15&9.13e-3 &-9.87 &0.77 &8.84e-3 &0.74 &4.58e-3 &-10.71 & & &
-FIR&Total gas&0.81 &6.27e-3 &-9.84 &0.30 &8.73e-3 &0.60 & 1.21e-2&-10.40 & & &
-FUV + 24\um &H$_2$only& 1.15&1.16e-2 &-9.28 &1.10 &1.21e-2 &0.25 &4.88e-3 &-9.76 & & &
-FUV + 24\um &HI only& 1.21&9.13e-3 &-9.87 &0.80 &7.33e-3 &0.60 &4.02e-3 &-10.70 & & &
-FUV + 24\um &Total gas&0.78& 4.67e-3&-10.05 &0.80 &7.35e-3 &0.60 &3.98e-3 &-10.70 & & &
-\hline
-\end{tabular}
-\end{table*}
 
 \begin{table*}
-\caption{Fitting parameters of the SF laws from applying the Bayesian fitting on regions with R less than 8$\kpc$ .}
-\label{table:sf-laws_8}
-\begin{tabular}{@{}lccccccccccc}
+\caption{Fitting parameters of the SF laws from applying the Bayesian.}
+\label{table:res}
+\begin{tabular}{||cc||cccrcccccr}
 \hline\hline
-SFR Tracer& Gas Tracer & N & \sigma$_N$ & $\log$(const$_{KS}$)& \nprime & $\sigma_{\eqnprime}$ & \beta& \sigma$_\beta$&$\log$(const$_{ES}$)&$\sigma_{scatter}$ \\
+\multicolumn{1}{||c||}{\multirow{1}{*}{Region}} & SFR Tracer& Gas Tracer & N & $\sigma_N$ & A & \nprime & $\sigma_{\eqnprime}$ & $\beta$ & $\sigma_\beta$ & A$^\prime$& \\
 \hline
-FIR&H$_2$only&0.96 &1.48e-2 &-8.95 &0.88 &1.48e-2 &0.30 &6.11e-3 &-9.54 & & &
-FIR&HI only&0.79 &0.03 &-9.89 &0.47 &0.30 &1.57 &0.28 &-12.11 & & &
-FIR&Total gas&1.00 &0.03 &-10.12 &0.63 &0.03 &0.53 &0.08 &-10.62 & & &
-FUV + 24\um &H$_2$only&1.04 &1.84e-2 &-9.29 &1.00 &1.85e-2 &0.18 &7.17e-3 &-9.65 & & &
-FUV + 24\um &HI only&0.68 &0.02 &-10.03 &0.92 &0.06 &0.42 &0.04 &-10.50 & & &
-FUV + 24\um &Total gas&0.87 &0.026 &-10.12 &0.75 &0.03 &0.16 &0.04 &-10.28 & & &
+\multicolumn{1}{||c||}{\multirow{6}{*}{Global case}} & TIR & H$_2$ only & 1.03 & 9.47e-3  & -8.92  & 0.95 & 9.77e-3 & 0.34 & 4.25e-3 & -9.57  \\
+ & TIR         & HI only    & 1.15 & 1.47e-2 & $-9.63$  & 0.77 & 8.84e-3 & 0.75 & 4.58e-3 & $-10.71$ \\
+ & TIR         & Total gas  & 0.81 & 6.27e-3 & $-9.84$  & 0.50 & 4.49e-3 & 0.55 & 4.57e-3 & $-10.53$\\
+ & FUV + 24\um & H$_2$ only & 1.15 & 1.16e-2 & $-9.28$  & 1.09 & 1.21e-2 & 0.25 & 4.88e-3 & $-9.76$  \\
+ & FUV + 24\um & HI only    & 1.21 & 9.13e-3 & $-9.87$  & 0.81 & 7.34e-3 & 0.60 & 4.10e-3 & $-10.70$ \\
+ & FUV + 24\um & Total gas  & 0.78 & 4.67e-3 & $-10.06$ & 0.48 & 4.61e-3 & 0.45 & 4.69e-3 & $-10.57$ \\
 \hline
+\multicolumn{1}{||c||}{\multirow{6}{*}{R$< 8\kpc$}}& TIR & H$_2$ only & 0.96 & 1.48e-2 & -8.95  & 0.88 & 1.49e-2 & 0.30 & 6.11e-3 & -9.54  \\
+ & TIR         & HI only    & 1.52 & 7.73e-2  & -9.91  & 1.00 & 7.27e-2  & 0.60 & 4.22e-2  & -10.60 \\
+ & TIR         & Total gas  & 1.00 & 3.51e-2  & -10.04 & 0.63 & 3.47e-2  & 0.53 & 7.57e-2  & -10.63 \\
+ & FUV + 24\um & H$_2$ only & 1.04 & 1.84e-2 & -9.29  & 1.00 & 1.85e-2 & 0.18 & 7.17e-3 & -9.64  \\
+ & FUV + 24\um & HI only    & 1.28 & 4.73e-2  & -10.00 & 0.93 & 5.68e-2  & 0.42 & 3.81e-2  & -10.50 \\
+ & FUV + 24\um & Total gas  & 0.88 & 2.59e-2  & -10.12 & 0.75 & 3.53e-2  & 0.16 & 3.93e-2  & -10.28 \\
+\hline
+\multicolumn{1}{||c||}{\multirow{6}{*}{$8\kpc < $R $< 18\kpc$}} & TIR & H$_2$ only & 1.08 & 1.26e-2 & -8.90  & 1.00 & 1.29e-2 & 0.40 & 5.74e-3 & -9.66  \\
+ & TIR         & HI only    & 1.09 & 4.50e-2 & -9.54  & 0.77 & 2.52e-2  & 0.75 & 1.26e-2  & -10.71 \\
+ & TIR         & Total gas  & 0.75 & 1.76e-2  & -9.81  & 0.47 & 1.18e-2  & 0.55 & 1.24e-2  & -10.53 \\
+ & FUV + 24\um & H$_2$ only & 1.21 & 1.53e-2 & -9.27  & 1.15 & 1.57e-2 & 0.33 & 6.57e-3 & -9.89  \\
+ & FUV + 24\um & HI only    & 1.18 & 2.89e-2 & -9.81  & 0.81 & 2.08e-2 & 0.61 & 1.12e-2 & -10.73 \\
+ & FUV + 24\um & Total gas  & 0.71 & 1.34e-2 & -9.81  & 0.44 & 1.18e-2  & 0.45 & 1.28e-2  & -10.58 \\
+\hline
+\multicolumn{1}{||c||}{\multirow{6}{*}{$18\kpc <$ R $\la 25\kpc$}}  & TIR & H$_2$ only & 1.57 & 2.63e-1  & -8.80  & 0.97 & 2.00e-1  & 1.19 & 1.01e-1  & -10.94 \\
+ & TIR         & HI only    & 1.17 & 4.67e-2 & -9.65  & 0.76 & 2.82e-2 & 0.75 & 1.48e-2 & -10.72 \\
+ & TIR         & Total gas  & 0.84 & 2.06e-2  & -9.85  & 0.52 & 1.45e-2  & 0.56 & 1.42e-2  & -10.56 \\
+ & FUV + 24\um & H$_2$ only & 1.87 & 3.03e-1  & -9.15  & 1.33 & 2.95e-1  & 1.38 & 1.12e-1  & -11.65 \\
+ & FUV + 24\um & HI only    & 1.22 & 2.96e-2 & -9.88  & 0.79 & 2.31e-2 & 0.62 & 1.28e-2 & -10.73 \\
+ & FUV + 24\um & Total gas  & 0.81 & 1.59e-2 & -10.06 & 0.42 & 1.14e-2  & 0.52 & 2.06e-1  & -10.69 \\
+ \hline
 \end{tabular}
 \end{table*}
-
-\begin{table*}
-\caption{Fitting parameters of the SF laws from applying the Bayesian fitting on regions with $8\kpc < $R $< 18\kpc$.}
-\label{table:sf-laws_18}
-\begin{tabular}{@{}lccccccccccc}
-\hline\hline
-SFR Tracer& Gas Tracer & N & \sigma$_N$ & $\log$(const$_{KS}$)& \nprime & $\sigma_{\eqnprime}$ & \beta& \sigma$_\beta$&$\log$(const$_{ES}$)&$\sigma_{scatter}$ \\
-\hline
-FIR&H$_2$only&1.08 &1.26e-2 &-8.90 &1.00 &1.29e-2 &0.40 &5.74e-3 &-9.66 & & &
-FIR&HI only&1.09 &2.64e-2 &-8.93 &0.77 &0.025 &0.75 &0.01 &-10.71 & & &
-FIR&Total gas&0.75 &0.02 &-10.02 &0.47 &0.01 &0.55 &0.01 &-10.53 & & &
-FUV + 24\um &H$_2$only&1.21 &1.53e-2 &-9.27 &1.15 &1.58e-2 &0.33 &6.57e-3 &-9.66 & & &
-FUV + 24\um &HI only&1.18 &2.89e-2 &-9.81 &0.81 &2.08e-2 &0.61 &1.12e-2 &-10.73 & & &
-FUV + 24\um &Total gas&0.71 &1.34e-2 &-10.02 &0.44 &0.01 &0.45 &0.01 &-10.58 & & &
-\hline
-\end{tabular}
-\end{table*}
-
-\begin{table*}
-\caption{Fitting parameters of the SF laws from applying the Bayesian fitting on regions with $18\kpc <$ R $\la 25\kpc$.}
-\label{table:sf-laws_25}
-\begin{tabular}{@{}lccccccccccc}
-\hline\hline
-SFR Tracer& Gas Tracer & N & \sigma$_N$ & $\log$(const$_{KS}$)&$\sigma_{scatter,KS}$& \nprime & $\sigma_{\eqnprime}$ & \beta& \sigma$_\beta$&$\log$(const$_{ES}$)&$\sigma_{scatter,ES}$ \\
-\hline
-FIR&H$_2$only&1.57 &0.26 &-8.80 &6.03e+2&0.97 &0.20 &1.19 &0.1 &-10.94 &6.44e+2 & 
-FIR&HI only&1.17 &0.05 &-9.65 &3.60e+2&0.76 &0.03 &0.75 &0.01 &-10.72 &3.96e+2 & 
-FIR&Total gas&0.84 &0.02 &-9.85 &3.13e+2&0.50 &0.01 &0.48 &0.01 &-10.62 & 3.61e+2& 
-FUV + 24\um &H$_2$only&1.87 &0.30 &-9.14 &5.72e+2&1.33 &0.29 &1.38 &0.12 &-11.65 & 5.80e+2& 
-FUV + 24\um &HI only&1.22 &0.03 &-9.22 &2.75e+2&0.79 &0.02 &0.62 &0.01 &-10.73 & 3.82e+2&
-FUV + 24\um &Total gas&0.81 &1.59 &-10.06 &3.80e+2&0.42 &0.01 &0.52 &0.02 &-10.68 &3.53e+2 & 
-\hline
-\end{tabular}
-\end{table*}
-
 
 
 
@@ -581,7 +549,7 @@ FUV + 24\um &Total gas&0.81 &1.59 &-10.06 &3.80e+2&0.42 &0.01 &0.52 &0.02 &-10.6
 
 %PB: By the way: better not to start paragraphs with "However" and "On the other hand" as it makes for an awkward transition between topics.
 
-Figures ~\ref{fig:fit,params,fir} and ~\ref{fig:fit,params,fuv} show results of the fitting parameters for SFR(TIR) and SFR(FUV+24\um) in three different regions. In case of Total gas for the K-S law, there is a sublinear retaliation between SFR and gas mass, in global case and all regions.This result is significatly lower than results from \cite{Ford13}. But it is similar to prediction of the \cite{Shetty13}, which argued that using the hierarchical Bayesian fit leads to power index N lower than other works. 
+Table ~\ref{table:res} shows results of the fitting parameters for SFR(TIR) and SFR(FUV+24\um) in three different regions. In case of Total gas for the K-S law, there is a sublinear retaliation between SFR and gas mass, in global case and all regions.This result is significatly lower than results from \cite{Ford13}. But it is similar to prediction of the \cite{Shetty13}, which argued that using the hierarchical Bayesian fit leads to power index N lower than other works. 
 %PB: more detailed comparison to Ford here: what values did he find, are these significantly different from yours?
 %PB: Also compare to Shetty's results: what did he find for other galaxies and are your results compatible with those?
 
@@ -591,19 +559,19 @@ However, if we look at the H$_{2}$ gas or HI gas, we could see power indexes are
 % PB: by "lack of HI gas makes our results very uncertain" you mean that the total gas and Hi-only fits are not reliable?
 % PB: not sure I see where the last sentence comes from; may need more detail. 
 
-\begin{figure*}
-\centering
-\includegraphics[width=162mm]{fir_res2.png}
-\caption{Fitting parameters for SFR(TIR) }
-\label{fig:fir,params,fir}
-\end{figure*}
+% \begin{figure*}
+% \centering
+% \includegraphics[width=162mm]{fir_res2.png}
+% \caption{Fitting parameters for SFR(TIR) }
+% \label{fig:fit,params,fir}
+% \end{figure*}
 
-\begin{figure*}
-\centering
-\includegraphics[width=162mm]{fuv_res.png}
-\caption{Fitting parameters for SFR(FUV + 24\um ) }
-\label{fig:fir,params,fuv}
-\end{figure*}
+% \begin{figure*}
+% \centering
+% \includegraphics[width=162mm]{fuv_res.png}
+% \caption{Fitting parameters for SFR(FUV + 24\um ) }
+% \label{fig:fit,params,fuv}
+% \end{figure*}
 
 On the other hand, from fitting the the extended Schmidt law, we have sublinear relation between SFR and gas surface density in global case and all the regions, execpt for gas surface density traced by H$_2$. Besides, for all cases we can see $\beta ~ 0.6$, which is the same as prediction of the \cite{Shi11}. For gas traced by H$_2$ in regions with $18\kpc <$ R $\la 25\kpc$, $\beta$ is way higher than this value. This is could be a result of the lack of H$_2$ gas in these regions. \cite{Kim13} using 3D numirical hydrodynamic simulations showed that in outer disk regions of the galaxy $\eqsigmasfr \propto \eqsigmagas \pho_{sd}^0.5$ where \pho$_{sd}$ is the midplane density of the stellar disk. our results for total gas in regions with $18\kpc <$ R $\la 25\kpc$ shows $\log_{10}(\eqsigmasfr) \propto 0.5 \times \log_{10}(\eqsigmastar)$, which is the same as simulations. However, in this case we found a sublinear relation between \sigmasfr and \sigmagas while \cite{Kim13} found a linear relation. 
 %----------------------------------------------------------------------------------------
