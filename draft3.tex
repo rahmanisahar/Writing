@@ -120,7 +120,7 @@ One of the methods to calculate the stellar mass within a galaxy, is based on st
 
 %P5(2*): What we did and why Andromeda and
 In this paper, we present our results from testing and comparing both the K-S law and the Extended Schmidt law on the Andromeda galaxy (M31). %We used three different gas maps and SFR maps, to identify if any of these laws work better with specific gas mass or SFR tracer. 
-Additionally, We applied these laws on three different regions on the M31, to determine whether there is any dependence to a distance from the centre of the galaxy or not. Since, M31 is the closest spiral galaxy to the Milky Way, therefore, we can have higher resolution images of it than we have of any other spiral galaxy. Having high resolution images provides us data from different regions within the galaxy with different physical situations (e.g. metallicity, surface brightness and etc.). All these parameters make the Andromeda a suitable test bed for studying the scaling law.
+Additionally, We applied these laws on three different regions on the M31, to determine whether there is any dependence to a distance from the centre of the galaxy or not. The M31 is the nearest spiral galaxy to the Milky Way. Therefore, we can have higher resolution images of it than we have of any other spiral galaxy. Having high resolution images provides us data from different regions within the galaxy with different physical situations (e.g. metallicity, surface brightness and etc.). All these parameters make the Andromeda a suitable test bed for studying the scaling law.
 %PB: Give a little more detail in the following sentence
 
 Furthermore, the range of the power index of K-S law calculated for the Andromeda galaxy is between 0.5 - 2 \citep[e.g.,][]{Tabatabaei10,Ford13}. %Different groups, using different SFR or gas mass tracers, applied the K-S law on the M31 and have very different power indexes. 
@@ -167,7 +167,7 @@ Wavelength & FWHM & Telescope
 One of the calibrations, which was used to calculate SFR, uses FUV emission as a tracer of the star forming regions. FUV emission of M31 was observed by the Galaxy Evolution Explorer ($GALEX$; \citep{Martin05}). $GALEX$ telescope data contains information for two bands, FUV:1350-1750 and NUV:1750-2750~\AA, with FWHM of 4\arcsec .5, and 6 \arcsec.
 
 \subsection{Visible light}
-Our other method to calculate the SFR was using a combination of \halpha emission and 24\um emission. \cite{Massey06, Massey07} mapped UBVRI and \halpha emission line of M31 as part of the Nearby Galaxies Survey using the KPNO telescope. \halpha maps, which were obtained from the NOAO science archive are available in 10 overlapping fields. We created a Mosaic image of the maps using Montage. Assuming that all stars have the same fraction of \halpha light in their spectra, we subtracted the R band emission from the \halpha using averaged scaling factor between R band images and \halpha provided by \cite{Azimlu11}. We also took masked map of stars from \cite{Azimlu11} and masked all point sources (Figure ~\ref{fig:halpha}). Details about making the making \halpha map can be found in the Appendix ~\ref{app:halpha}.
+Our other method to calculate the SFR was using a combination of \halpha emission and 24\um emission. \cite{Massey06, Massey07} mapped UBVRI and \halpha emission line of M31 as part of the Nearby Galaxies Survey using the KPNO telescope. \halpha maps, which were obtained from the NOAO science archive are available in 10 overlapping fields. We created a Mosaic image of the maps using Montage \citep{Berriman08}. Assuming that all stars have the same fraction of \halpha light in their spectra, we subtracted the R band emission from the \halpha using averaged scaling factor between R band images and \halpha provided by \cite{Azimlu11}. We also took masked map of stars from \cite{Azimlu11} and masked all point sources (Figure ~\ref{fig:halpha}). Details about making the making \halpha map can be found in the Appendix ~\ref{app:halpha}.
 
 \subsection{IR and sub mm Data}
 In IR and sub mm bands, both $Spitzer$ \citep{Wener04} and $Herschel$ \citep{Pilbratt10}  space telescopes observed the M31. The Infrared Array Camera (IRAC; \citep{Fazio04}) on the $Spitzer$ is a camera observing at four channels (3.6, 4.5, 5.8, and 8 \um). IRAC observations of the M31 were obtained by \cite{Barmby06}, which covered $3\degr.7 \times 1\degr.6$. IRAC 3.6 and 4.5\um bands  were used to calculate the stellar mass. Multiband Imaging Photometer for Spitzer (MIPS) observed the  M31 at 24, 60, and 160\um and covered region $\sim 1\degr \times 3\degr$ \citep{Gordon06}.
@@ -418,42 +418,42 @@ We took the similar approach for the extended Schmidt law. Figures ~\ref{fig:es,
     \centering
     \begin{subfigure}[b]{0.3\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{es_tot_fir_vs_h2.png}
+        \includegraphics[width=\textwidth]{es_tot_fir_h2_f.png}
         \caption{SFR,TIR vs surface density of H$_2$}
         \label{fig:es,all,fir,h2}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.3\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{es_tot_fir_vs_hi.png}
+        \includegraphics[width=\textwidth]{es_tot_fir_hi_f.png}
         \caption{SFR,TIR vs surface density of HI}
         \label{fig:es,all,fir,hi}
     \end{subfigure}
     \hfill
    \begin{subfigure}[b]{0.3\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{es_tot_fir_vs_tot.png}
+        \includegraphics[width=\textwidth]{es_tot_fir_tot_gas_f.png}
         \caption{SFR,TIR vs surface density of total gas}
         \label{fig:es,all,fir,tot}
     \end{subfigure}
     \hfill
      \begin{subfigure}[b]{0.3\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{es_tot_fuv_vs_h2.png}
+        \includegraphics[width=\textwidth]{es_tot_fuv_h2_f.png}
         \caption{SFR,FUV+24\um vs surface density of H$_2$}
         \label{fig:es,all,fuv,h2}
     \end{subfigure}
      \hfill
    \begin{subfigure}[b]{0.3\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{es_tot_fuv_vs_hi.png}
+        \includegraphics[width=\textwidth]{es_tot_fuv_hi_f.png}
         \caption{SFR,FUV+24\um vs surface density of HI}
         \label{fig:es,all,fuv,hi}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.3\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{es_tot_fuv_vs_tot.png}
+        \includegraphics[width=\textwidth]{es_tot_fuv_tot_gas_f.png}
         \caption{SFR,FUV+24\um vs surface density of total gas}
         \label{fig:es,all,fuv,tot}
     \end{subfigure}
@@ -536,9 +536,7 @@ We took the similar approach for the extended Schmidt law. Figures ~\ref{fig:es,
 
 Table ~\ref{table:res} shows the results of the hierarchical Bayesian fit. Due to the similarity of our results for both SFR(TIR) and SFR(FUV+24$\mu$m) and the fact that they are in close agreement with each other, 
 %PB: the two parts of the sentence above ("similarity of results" and "in close agreement") seem to say the same thing -- or am I not understanding what you mean here?
-We only interpret the results from the SFR(FUV+24$\mu$m). Results from the SFR(H$\alpha$) fitting are going to be discussed in the Appendix ~\ref{app:halpha}. %In this section we are going to talk about result from fitting the K-S Law, results from fitting the extended Schmidt law and the comparison between these two star formation laws and which one works better in the M31. %SR: Should I keep that or not
-%PB: I don't think you need the "In this section" sentence; the content is clear from the subsection headings.
-
+We only interpret the results from the SFR(FUV+24$\mu$m). Results from the SFR(H$\alpha$) fitting are going to be discussed in the Appendix ~\ref{app:halpha}.
 \subsection{The K-S law in M31}
 
 As mentioned before, the K-S law in the M31 was tested by many groups. %PB: edits made to next sentences. Note that plural of "index" is "indices".
