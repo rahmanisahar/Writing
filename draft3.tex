@@ -327,7 +327,7 @@ where  factor of 1.36 is a constant to consider He and the other heavier element
 \label{fig:stellarmass}
 \end{figure*}
 
-Stellar mass can be measured using a suitable calibration between flux/luminosity of stars in specific wavelengths and stellar mass. The basic idea behind these kind of calibrations comes from the fact that one can use the star formation histories recovered from synthesizing the stellar optical colour magnitudes in different regions in the galaxies. The calculated stellar mass can be used  to calibrate the fluxes from the stars as the easily measurable parameters of stars. Using NIR bands, different groups tried to make a map of stellar mass distributions within galaxies \citep[e.g.,][]{Elmgreen84}.%  Using $B-V$ colours \citep{Bell01} and $Spitzer$ 3.6- and 4.5-\um, M/L correction, \cite{Kendall08} produced stellar mass surface densities of M81. %PB: do you mean M81 here? If so, it's not quite clear why you're mentioning a different galaxy.
+Stellar mass can be measured using a suitable calibration between flux$/$luminosity of stars in specific wavelengths and stellar mass. The basic idea behind these kind of calibrations comes from the fact that one can use the star formation histories recovered from synthesizing the stellar optical colour magnitudes in different regions in the galaxies. The calculated stellar mass can be used  to calibrate the fluxes from the stars as the easily measurable parameters of stars. Using NIR bands, different groups tried to make a map of stellar mass distributions within galaxies \citep[e.g.,][]{Elmgreen84}.%  Using $B-V$ colours \citep{Bell01} and $Spitzer$ 3.6- and 4.5-\um, M/L correction, \cite{Kendall08} produced stellar mass surface densities of M81. %PB: do you mean M81 here? If so, it's not quite clear why you're mentioning a different galaxy.
 
 We calculated the stellar mass within the M31 using calibration of the 3.6\um flux by \cite{Eskew12}.  Since 3.6\um flux is almost insensitive to the emission from the young stellar population, dust absorption and emission, this band-pass was used for the calibration of the stellar mass. By using data from the large Magellanic cloud, they find an empirical relation between stellar mass and luminosity of stars as:
 
@@ -454,10 +454,10 @@ We took the similar approach for the extended Schmidt law. Figures ~\ref{fig:es,
     \begin{subfigure}[b]{0.3\textwidth}
         \centering
         \includegraphics[width=\textwidth]{es_tot_fuv_tot_gas_f.png}
-        \caption{SFR,FUV+24\um vs surface density of total gas}
+        \caption{SFR,FUV+24\um vs. surface density of total gas}
         \label{fig:es,all,fuv,tot}
     \end{subfigure}
-    \caption{The result from fitting the extended Schmidt law on data from whole galaxy using pixel by pixel method. The plots show the SFR vs surface density of gas, and z-axis is the surface density of the stellar mass. Each figure shows different combinations of the SFR tracer and gas mass tracer results. Plots have a different pixel size. Each point in the plots with the surface density of H$_2$ as a tracer of gas mass represents regions $\sim$30~Kpc and points in plots with surface density of HI or total gas mass, represents region in $\sim$155~Kpc.}
+    \caption{The result from fitting the extended Schmidt law on data from whole galaxy using pixel by pixel method. The plots show the SFR vs. surface density of gas, and z-axis is the surface density of the stellar mass. Each figure shows different combinations of the SFR tracer and gas mass tracer results. Plots have a different pixel size. Each point in the plots with the surface density of H$_2$ as a tracer of gas mass represents regions $\sim$30~Kpc and points in plots with surface density of HI or total gas mass, represents region in $\sim$155~Kpc.}
     \label{fig:es,all}
 \end{figure*}
 
@@ -553,7 +553,7 @@ Our results for the global case of the K-S law show that using total gas gives a
 The sub-linear power index in the case of the total gas surface density suggests that the star formation efficiency (surface density of SFR per surface density of gas, SFE) is decreasing by increasing the total gas. Consequently, the depletion time increases by increasing the total gas. On the contrary, the super-linear relation suggests that the depletion time is decreasing with increasing the amount of the CO or/ and HI gas. The further conclusion is more similar to the initial the initial suggestion of the K-S law. % PB: extra "to the initial" here?
 If we assume that stars form in the molecular clouds, the decreasing of the SFE with increasing the total gas is justifiable.  
 
-The results of the hierarchical Bayesian fitting on the regions with different distances from the centre of the galaxy give us similar values in the global case. For all three regions, the K-S law using the total gas leads to sub-linear relation between the SFR and the surface density of the total gas. Likewise, for using the H$_{2}$ only gas or HI only gas, this relationship is either linear or super-linear. The K-S law power index varies with the distance of the galaxy. Considering molecular gas, the power law index is increasing by going to further distances from the center of the galaxy. This trend also can be seen in the \cite{Ford13}. For the atomic gas only or the total gas this trend cannot be seen. This could be the result of the fact that, the atomic gas in the center of the galaxy is less than the other regions in the galaxy. 
+The results of the hierarchical Bayesian fitting on the regions with different distances from the centre of the galaxy give us similar values in the global case. For all three regions, the K-S law using the total gas leads to sub-linear relation between the SFR and the surface density of the total gas. Likewise, for using the H$_{2}$ only gas or HI only gas, this relationship is either linear or super-linear. The K-S law power index varies with the distance of the galaxy. Considering molecular gas, the power law index is increasing by going to further distances from the centre of the galaxy. This trend also can be seen in the \cite{Ford13}. For the atomic gas only or the total gas this trend cannot be seen. This could be the result of the fact that, the atomic gas in the centre of the galaxy is less than the other regions in the galaxy. 
 % PB: I don't quite understand your argument in the previous sentence.
 The increasing of the power index in this case may be an effect of the decreasing metallicity across the galaxy, or other physical properties of the galaxy such as stellar mass (see section ~\ref{sec:es_res}).
   
@@ -581,13 +581,15 @@ We also produced the ISM map, using molecular gas only, atomic gas only and the 
 
 
 %----------------------------------------------------------------------------------------
-%Acknowledgment 
+%Acknowledgement 
 %----------------------------------------------------------------------------------------
-\section*{Acknowledgment}
-This research made use of Montage, funded by the National Aeronautics and Space Administration's Earth Science Technology Office, Computation Technologies Project, under Cooperative Agreement Number NCC5-626 between NASA and the California Institute of Technology. Montage is maintained by the NASA/IPAC Infrared Science Archive.
+\section*{Acknowledgement}
+Authors would thanks S. Lianou for very useful conversations with her specially at early stage of project, and from D. Kruijssen for his idea about 3D plots.
+This research made use of Montage, funded by the National Aeronautics and Space Administration's Earth Science Technology Office, Computation Technologies Project, under Cooperative Agreement Number NCC5-626 between NASA and the California Institute of Technology. Montage is maintained by the NASA/IPAC Infra-red Science Archive.
 %----------------------------------------------------------------------------------------
 %BIBLOGRAPHY
 %----------------------------------------------------------------------------------------
+\newpage
 \newpage
 \bibliography{ref.bib}
 
