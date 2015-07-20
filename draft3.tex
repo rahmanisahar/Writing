@@ -402,7 +402,7 @@ Metallicity of galaxies can be estimated by measuring abundances of heavier elem
 \label{fig:ks,all}
 \end{figure*}
 
-Producing the SFR, gas mass, stellar mass, and metallicity maps provides enough data to examine and compare the K-S law and the extended Schmidt law. To create the surface density map, we divided the value of each pixel by its area in pc$^2$. We investigated the K-S law and the extended Schmidt law by using pixel by pixel method in the entire galaxy as well as comparing the laws in three elliptical regions, assuming the position angle 38$\degr$, inclination of 77$\degr$ for M31 with distance from the centre of the galaxy the same as the ones described in section~\ref{sec: metal}. As mentioned in section~\ref{sec:data}, since the H$_2$ gas mass map has higher angular resolution and smaller pixel size than the HI gas mass map, our final results have two sets of different pixel sizes. Consequently, any plots with surface density of H$_2$ as a tracer of the gas mass will have more data points. 
+Producing the SFR, gas mass, stellar mass, and metallicity maps provides enough data to examine and compare the K-S law and the extended Schmidt law. To create the surface density map, we divided the value of each pixel by its area in pc$^2$. We investigated the K-S law and the extended Schmidt law by using pixel by pixel method in the entire galaxy as well as comparing the laws in three elliptical regions, assuming the position angle 38$\degr$, inclination of 77$\degr$ for M31 with distance from the centre of the galaxy the same as the ones described in section~\ref{sec:metal}. As mentioned in section~\ref{sec:data}, since the H$_2$ gas mass map has higher angular resolution and smaller pixel size than the HI gas mass map, our final results have two sets of different pixel sizes. Consequently, any plots with surface density of H$_2$ as a tracer of the gas mass will have more data points. 
 
 
 Equations~\ref{equ:ks_org}~and~\ref{equ:es_org} can be re-written in logarithmic scale to obtain two linear equations:
@@ -440,7 +440,7 @@ We made three SFR maps, three gas mass density maps and a stellar mass density m
 %PB: no space, so SFR(TIR)
 Figure~\ref{fig:ks,all} shows the pixel by pixel fitting of the K-S law on the whole galaxy. First row plots are the surface density of the SFR(TIR), which is calculated using  the TIR emission form section ~\ref{sec:sfr_fir}, versus the gas surface density traced by only the molecular gas (H$_2$),  only atomic gas (HI), and total gas from right to left, respectively. The only difference between the upper and the other rows is that in the lower rows the SFR indicator is the FUV plus 24 $\mu$m (second row), and \halpha plus 24 $\mu$m emission (third row). Figure~\ref{fig:ks,regs} shows the same data as figure~\ref{fig:ks,all}. However, in this figure we separated pixels from different regions in the galaxy by their colours. The regions with R less than 8$\kpc$, $8\kpc < $R $< 18\kpc$, and $18\kpc <$ R $\la 25\kpc$ are shown in red, green and blue, respectively. There is a deviation in middle panel plots of figure~\ref{fig:ks,all} which shows region with high star formation rate and low HI gas. It is clear that these deviation belongs to regions further than 8~kpc from centre (figure~\ref{fig:ks,regs}). HI surface density profile of M31 \citep[See figure 16 in.][]{Chemin09} shows several local minimum from centre of M31 to 30~kpc distance which could be results of the HI wrap. Some of these minimums are around the rings area of M31, which has higher SFR regarding to the other regions in the galaxy and causes these deviations. Since the total gas mass is calculated by adding HI and H$_2$ gas mass, we can see these deviation on right panel of figure~\ref{fig:ks,all}, too. However, since we have higher H$_2$ emission in those regions compare to other regions of M31 these deviations are less than the ones in the middle panel.  
 
-We took the similar approach for the extended Schmidt law. Figures~\ref{fig:es,all}-~\ref{fig:es,regs,halpha,tot} show the results of the pixel by pixel fitting of the extended Schmidt law. For the extended Schmidt law fitting, we plotted our results in 3D to illustrate the relationship between the surface density of the SFR, the gas mass surface density, and stellar mass density more clearly. In these series of plots, X-axis is the gas mass surface density, either molecular gas (H$_2$), the atomic gas (HI), or the total gas, Y-axis is the SFR(TIR) or SFR(FUV + 24 $\mu$m), and Z-axis is the stellar mass surface density. Shadows of our data on each surface are also plotted, to have a more clear picture of correlations between components. Shadows on the X-Y surface is the same as figure~\ref{fig:ks,all}. 
+We took the similar approach for the extended Schmidt law. Figures~\ref{fig:es,all}-~\ref{fig:es,regs,fuv,tot} show the results of the pixel by pixel fitting of the extended Schmidt law. For the extended Schmidt law fitting, we plotted our results in 3D to illustrate the relationship between the surface density of the SFR, the gas mass surface density, and stellar mass density more clearly. In these series of plots, X-axis is the gas mass surface density, either molecular gas (H$_2$), the atomic gas (HI), or the total gas, Y-axis is the SFR(TIR) or SFR(FUV + 24 $\mu$m), and Z-axis is the stellar mass surface density. Shadows of our data on each surface are also plotted, to have a more clear picture of correlations between components. Shadows on the X-Y surface is the same as figure~\ref{fig:ks,all}. 
 
 \begin{figure*}
     \centering
@@ -533,56 +533,60 @@ We took the similar approach for the extended Schmidt law. Figures~\ref{fig:es,a
 %\label{fig:es,regs,halpha,tot}
 %\end{figure*}
 
-
 \begin{table*}
 \caption{Fitting parameters of the SF laws from applying the Bayesian method, {\it N} is the power index of the K-S law; A is the intercept of the K-S law; \nprime is the gas power index in the extended Schmidt law; $\beta$ is the power index of the stellar component in the extended Schmidt law; and A$^\prime$ is the intercept of the extended Schmidt law}
 \label{table:res}
 \begin{tabular}{ccccrccrr}
 \hline\hline
-\multicolumn{1}{c}{\multirow{1}{*}{Region}} & SFR Tracer        & Gas Tracer & {\it N}    & A      & \nprime & $\beta$ & A$^\prime$ \\
+\multicolumn{1}{c}{\multirow{1}{*}{Region}} & SFR Tracer & Gas Tracer & {\it N}    & A      & \nprime & $\beta$ & A$^\prime$ \\
 \hline
-\multicolumn{1}{c}{\multirow{9}{*}{Whole Galaxy}} & TIR               & H$_2$ only & 1.05 & -8.98  & 0.97    & 0.35    & -9.53      \\
- & TIR               & HI only    & 1.19 & -9.69  & 0.79    & 0.75    & -10.56     \\
- & TIR               & Total gas  & 0.82 & -9.84  & 0.51    & 0.56    & -10.40     \\
- & FUV + 24 $\mu$m       & H$_2$ only & 1.16 & -9.36  & 1.15    & 0.25    & -9.74      \\
- & FUV + 24 $\mu$m       & HI only    & 1.19 & -9.96  & 0.81    & 0.61    & -10.62     \\
- & FUV + 24 $\mu$m       & Total gas  & 0.78 & -10.09 & 0.49    & 0.45    & -10.50     \\
- & H$\alpha$ + 24 $\mu$m & H$_2$ only & 1.16 & -9.26  & 1.07    & 0.38    & -9.86      \\
- & H$\alpha$ + 24 $\mu$m & HI only    & 0.54 & -9.61  & 0.53    & 0.76    & -10.69     \\
- & H$\alpha$ + 24 $\mu$m & Total gas  & 0.54 & -9.82  & 0.37    & 0.59    & -10.55     \\
+\multicolumn{1}{c}{\multirow{9}{*}{Whole Galaxy}} & TIR  & H$_2$ only & 1.02 - 1.05 & -8.99 - -8.98  & 0.93 - 0.97    & 0.33 - 0.35    & -9.56 - -9.53  \\
+ & TIR               & HI only    & 1.13 - 1.19 & -9.71 - -9.69  & 0.76 - 0.79    & 0.74 - 0.75    & -10.58 - -10.56     \\
+ & TIR               & Total gas  & 0.80 - 0.82 & -9.86 - -9.84  & 0.50 - 0.51    & 0.54 - 0.56    & -10.42 - -10.40     \\
+ & FUV + 24 $\mu$m       & H$_2$ only & 1.11 - 1.16 & -9.37-9.36  & 1.06 - 1.15   & 0.23 - 0.25    & -9.78 - -9.74      \\
+ & FUV + 24 $\mu$m       & HI only    & 1.16 - 1.19 & -9.97 - -9.96  & 0.78 - 0.81    & 0.59 - 0.61   & -10.64 - -10.62     \\
+ & FUV + 24 $\mu$m       & Total gas  & 0.76 - 0.78 & -10.10 - -10.09 & 0.47 - 0.49    & 0.44 - 0.45    & -10.52 - -10.50     \\
+ & H$\alpha$ + 24 $\mu$m & H$_2$ only & 1.11 - 1.16 & -9.27- -9.26  & 1.02 - 1.07    & 0.36 - 0.38    & -9.89 - -9.86      \\
+ & H$\alpha$ + 24 $\mu$m & HI only    & 0.46 - 0.54 & -9.64 - -9.61  & 048 - 0.53    & 0.72 - 0.76    & -10.75 -10.69     \\
+ & H$\alpha$ + 24 $\mu$m & Total gas  & 0.50 - 0.54 & -9.85 - -9.82  & 0.34 - 0.37    & 0.55 - 0.59    & -10.61 - -10.55     \\
 \hline
-\multicolumn{1}{c}{\multirow{9}{*}{R$< 8\kpc$}} & TIR               & H$_2$ only & 1.01 & -8.95  & 0.92    & 0.36    & -6.66      \\
- & TIR               & HI only    & 1.63 & -9.93  & 1.14    & 0.65    & -10.38     \\
- & TIR               & Total gas  & 1.07 & -9.99  & 0.87    & 0.41    & -10.21     \\
- & FUV + 24 $\mu$m       & H$_2$ only & 1.07 & -9.30  & 1.03    & 0.18    & -9.62      \\
- & FUV + 24 $\mu$m       & HI only    & 1.29 & -10.06 & 1.02    & 0.45    & -10.34     \\
- & FUV + 24 $\mu$m       & Total gas  & 0.89 & -10.12 & 0.81    & 0.21    & -10.18      \\
- & H$\alpha$ + 24 $\mu$m & H$_2$ only & 1.14 & -9.23  & 1.03    & 0.41    & -6.47      \\
- & H$\alpha$ + 24 $\mu$m & HI only    & 1.29 & -9.56  & 0.96    & 1.54    & -11.10     \\
- & H$\alpha$ + 24 $\mu$m & Total gas  & 0.90 & -9.99  & 0.65    & 1.27    & -10.88    \\
+\multicolumn{1}{c}{\multirow{9}{*}{R$< 8\kpc$}} & TIR & H$_2$ only & 0.94-1.01 & -8.97 - -8.95  & 0.87 - 0.92    & 0.30 - 0.36    & -9.49 - -6.66 \\
+ & TIR               & HI only    & 1.31 - 1.63 & -10.00 - -9.93  & 0.84 - 1.14    & 0.48 - 0.65    & -10.55 - -10.38     \\
+ & TIR               & Total gas  & 0.92 - 1.07 & -10.10 - -9.99  & 0.80 - 0.87    & 0.24 - 0.41    & -10.37 - -10.21     \\
+ & FUV + 24 $\mu$m       & H$_2$ only & 1.00 - 1.07 & -9.32 - -9.30  & 0.95 - 1.03  & 0.15 - 0.18  & -9.68 - -9.62      \\
+ & FUV + 24 $\mu$m       & HI only    & 1.11 - 1.29 & -10.10 - -10.06 & 0.78 - 1.02    & 0.29 - 0.45   & -10.49 - -10.34     \\
+ & FUV + 24 $\mu$m       & Total gas  & 0.78 - 0.89 &-10.20 - -10.12 & 0.66 - 0.81    & 0.05 - 0.21    & -10.32 - -10.18      \\
+ & H$\alpha$ + 24 $\mu$m & H$_2$ only & 1.06 - 1.14 & -9.25 - -9.23  & 0.97 - 1.03    & 0.36 - 0.41    & -9.86 - -6.47      \\
+ & H$\alpha$ + 24 $\mu$m & HI only    & 0.31 - 1.29 & -9.10 - -9.56  & 0.21 - 0.96    & 0.90 - 1.54    & -12.01 - -11.10     \\
+ & H$\alpha$ + 24 $\mu$m & Total gas  & 0.49 - 0.90 & -10.30 - -9.99  & 0.28 - 0.65    & 0.62 - 1.27    & -11.71 - -10.88    \\
 \hline
-\multicolumn{1}{c}{\multirow{9}{*}{$8\kpc < $R $< 18\kpc$}} & TIR               & H$_2$ only & 1.08 & -8.90  & 1.00    & 0.40    & -9.59      \\
- & TIR               & HI only    & 1.16 & -9.58  & 0.84    & 0.77    & -10.53     \\
- & TIR               & Total gas  & 0.79 & -9.77  & 0.50    & 0.58    & -10.38     \\
- & FUV + 24 $\mu$m       & H$_2$ only & 1.21 & -9.28  & 1.15    & 0.31    & -9.82      \\
- & FUV + 24 $\mu$m       & HI only    & 1.19 & -9.88  & 0.85    & 0.63    & -10.61     \\
- & FUV + 24 $\mu$m       & Total gas  & 0.75 & -10.04 & 0.47    & 0.47    & -10.47     \\
- & H$\alpha$ + 24 $\mu$m & H$_2$ only & 1.18 & -9.18  & 1.09    & 0.41    & -9.88      \\
- & H$\alpha$ + 24 $\mu$m & HI only    & 0.56 & -9.49  & 0.72    & 0.81    & -10.67     \\
- & H$\alpha$ + 24 $\mu$m & Total gas  & 0.52 & -9.71  & 0.40    & 0.61    & -10.47  \\
+\multicolumn{1}{c}{\multirow{9}{*}{$8\kpc < $R $< 18\kpc$}} & TIR & H$_2$ only & 1.04 - 1.08 & -8.91- -8.90 & 0.95 - 1.00 & 0.38 - 0.40 & -9.92 - -9.59 \\
+ & TIR               & HI only    & 0.97 - 1.16 & -9.64 - -9.58  & 0.72 - 0.84    & 0.72 - 0.77    & -10.61 - -10.53     \\
+ & TIR               & Total gas  & 0.71 - 0.79 & -9.83 - -9.77  & 0.45 - 0.50    & 0.53 - 0.58    & -10.45 - -10.38     \\
+ & FUV + 24 $\mu$m       & H$_2$ only & 1.16 - 1.21 & -9.30 - -9.28  & 1.10 - 1.15    & 0.28 - 0.31    & -9.86 - -9.82      \\
+ & FUV + 24 $\mu$m       & HI only    & 1.07 - 1.19 & -9.92 - -9.88  & 0.76 - 0.85    & 0.56 - 0.63    & -10.68 - -10.61     \\
+ & FUV + 24 $\mu$m       & Total gas  & 0.69 - 0.75 & -10.10 - -10.04 & 0.42 - 0.47    & 0.42 - 0.47    & -10.55 - -10.47     \\
+ & H$\alpha$ + 24 $\mu$m & H$_2$ only & 1.12 - 1.18 & -9.19 - -9.18  & 1.04 - 1.09    & 0.39 - 0.41    & -9.93 - -9.88      \\
+ & H$\alpha$ + 24 $\mu$m & HI only    & 0.33 - 0.56 & -9.95 - -9.49  & 0.57 - 0.72    & 0.70 - 0.81    & -10.85 -10.67     \\
+ & H$\alpha$ + 24 $\mu$m & Total gas  & 0.42 - 0.52 & -9.79 - -9.71  & 0.32 - 0.40    & 0.51 - 0.61    & -10.63 - -10.47  \\
 \hline
-\multicolumn{1}{c}{\multirow{9}{*}{$18\kpc <$ R $\la 25\kpc$}} & TIR               & H$_2$ only & 2.08 & -8.76  & 1.81    & 1.32    & -5.82      \\
- & TIR               & HI only    & 1.30 & -9.68  & 0.83    & 0.78    & -10.54     \\
- & TIR               & Total gas  & 0.86 & -9.83  & 0.55    & 0.57    & -10.38     \\
- & FUV + 24 $\mu$m       & H$_2$ only & 2.87 & -9.18  & 2.89    & 1.49    & -11.33     \\
- & FUV + 24 $\mu$m       & HI only    & 1.27 & -9.95  & 0.85    & 0.64    & -10.63     \\
- & FUV + 24 $\mu$m       & Total gas  & 0.80 & -10.08 & 0.52    & 0.48    & -10.49     \\
- & H$\alpha$ + 24 $\mu$m & H$_2$ only & 2.86 & -9.05  & 3.12    & 1.30    & -10.86     \\
- & H$\alpha$ + 24 $\mu$m & HI only    & 0.63 & -9.62  & 0.44    & 0.81    & -10.62     \\
- & H$\alpha$ + 24 $\mu$m & Total gas  & 0.60 & -9.84  & 0.39    & 0.66    & -10.52     \\
+\multicolumn{1}{c}{\multirow{9}{*}{$18\kpc <$ R $\la 25\kpc$}} & TIR & H$_2$ only & 1.42 - 2.08 &-8.87- -8.76 & 1.25 - 1.81& 1.20 - 1.32& -10.72 - -5.82 \\
+ & TIR               & HI only    & 1.11 - 1.30 & -9.74 - -9.68  & 0.71 - 0.83    & 0.72 - 0.78    & -10.63 - -10.54     \\
+ & TIR               & Total gas  & 0.79 - 0.86 &  -9.88 - -9.83  & 0.50 - 0.55    & 0.51 - 0.57    & -10.45 - -10.38     \\
+ & FUV + 24 $\mu$m       & H$_2$ only & 1.93 - 2.87 & -9.32 - -9.18  & 1.60 - 2.89    & 1.26 - 1.49& -11.72 - -11.33     \\
+ & FUV + 24 $\mu$m       & HI only    & 1.15 - 1.27 & -9.99 - -9.95  & 0.75 - 0.85    & 0.59 - 0.64    & -10.70 - -10.63     \\
+ & FUV + 24 $\mu$m       & Total gas  & 0.74 - 0.80 & -10.10 - -10.08 & 0.46 - 0.52    & 0.42 - 0.48    & -10.56 - -10.49     \\
+ & H$\alpha$ + 24 $\mu$m & H$_2$ only & 1.76 - 2.86 & -9.20- -9.05  & 1.55 - 3.12    & 1.06 - 1.30    & -11.33 - -10.86     \\
+ & H$\alpha$ + 24 $\mu$m & HI only    & 0.36 - 0.63 &  -9.71 - -9.62  & 0.23 - 0.44    & 0.69 - 0.81    & -10.80 - -10.62     \\
+ & H$\alpha$ + 24 $\mu$m & Total gas  & 0.49 - 0.60 & -9.39 - -9.84  & 0.28 - 0.39    & 0.53 - 0.66    & -10.70 - -10.52     \\
  \hline
 \end{tabular}
 \end{table*}
+
+
+
+
+
 
 
 
@@ -594,24 +598,24 @@ We took the similar approach for the extended Schmidt law. Figures~\ref{fig:es,a
 \multicolumn{1}{c}{\multirow{1}{*}{Region}}  & Gas Tracer & {\it N} & A  & \nprime & $\beta$ & A$^\prime$ \\
 \hline
 \multicolumn{1}{c}{\multirow{3}{*}{Whole Galaxy}}
- & H$_2$ only & 0.32 & -9.91   & 0.27  & 0.41    &  -10.31  \\
- & HI only    & 1.24 & -11.36  & 0.85  & 0.65    & -11.60     \\
- & Total gas  & 0.89 & -9.94 & 0.52    & 0.49    & -10.48     \\
+ & H$_2$ only & 0.26 - 0.32 & -10.00 - -9.91   & 0.22 - 0.27  & 0.27 - 0.41    & -10.52 - -10.31  \\
+ & HI only    & 1.08 - 1.24 & -11.60 - -11.36  & 0.73 - 0.85  & 0.58 - 0.65    & -11.78 - -11.60     \\
+ & Total gas  & 0.73 - 0.89 & -10.10 - -9.94 & 0.44 - 0.52    & 0.41 - 0.49    & -10.57 - -10.48     \\
 \hline
 \multicolumn{1}{c}{\multirow{3}{*}{R$< 8\kpc$}}
- & H$_2$ only & 0.91 & -9.03  & 0.41   & 0.71   & -9.88      \\
- & HI only    & 1.73 & -10.88 & 1.03    & 1.42    & -10.52     \\
- & Total gas  & 0.88 & -9.94  & 1.45    & 0.83    & -9.11      \\
+ & H$_2$ only & 0.10 - 0.91 & -11.19 - -9.03  & 0.20 - 0.41   & 0.24 - 0.71   & -9.73 - -9.88      \\
+ & HI only    & 0.74 - 1.73 & -12.04 - -10.88 & 0.11 - 1.04    & 0.64 - 1.40    & -11.32 - -10.54     \\
+ & Total gas  & 0.51 - 0.88 & -10.20 - -9.94  & 0.91 - 1.47    & 0.24 - 0.91    & -9.71 - -9.10      \\%????
 \hline
 \multicolumn{1}{c}{\multirow{3}{*}{$8\kpc < $R $< 18\kpc$}}
- & H$_2$ only & 0.36 & -9.66  & 0.28    &  0.53   & -10.15       \\
- & HI only    & 1.38 & -11.06 & 1.26    & 0.65    & -11.33     \\
- & Total gas  & 0.80 & -10.00 & 0.72    & 0.53    & -10.17     \\
+ & H$_2$ only & 0.17 - 0.36 & -10.00 - -9.66  & 0.13 - 0.28    &  0.21 - 0.53   & -10.70 - -10.15       \\
+ & HI only    & 0.88 - 1.38 & -11.80 - -11.06 & 0.66 - 1.26    & 0.16 - 0.65    & -12.14 - -11.33     \\
+ & Total gas  & 0.55 - 0.80 & -10.20 - -10.00 & 0.41 - 0.72    & 0.08 - 0.53    & -10.72 - -10.17     \\
 \hline
 \multicolumn{1}{c}{\multirow{3}{*}{$18\kpc <$ R $\la 25\kpc$}} 
- & H$_2$ only & 0.34 & -9.47  &  0.34    & 0.75    & -9.72   \\
- & HI only    & 1.46 & -10.73  & 1.05    & 0.84    & -11.44     \\
- & Total gas  & 0.85 & -9.86 & 0.58    & 0.66    & -10.26     \\
+ & H$_2$ only & 0.11 - 0.34 & -9.95 - -9.47  & 0.19 - 0.34    & 0.24 - 0.75    & -10.64 - -9.72   \\
+ & HI only    & 0.76 - 1.46 & -11.80 - -10.73  & 0.60 - 1.05    & 0.55 - 0.84    & -12.02 -11.44     \\
+ & Total gas  & 0.52 - 0.85 & -10.10 - -9.86 & 0.28 - 0.58    & 0.30 - 0.65    & -10.75 - -10.26     \\
  \hline
 \end{tabular}
 \end{table*}
@@ -630,9 +634,10 @@ Table~\ref{table:res} shows the results of the hierarchical Bayesian fitting for
 As mentioned before, the K-S law in M31 was tested by many groups. In one of the most recent works on M31, \cite{Ford13} investigated the K-S law in six annuli and the global case using the ordinary least squares (OLS) fitting method. To make comparisons between our results easier, we averaged the power indices for their annuli which overlap with our three different regions so we could compare results in the same regions.
 \cite{Tabatabaei10} also applied the K-S law to M31 using the OLS fitting method, and have some differences with results from \cite{Ford13}. \cite{Ford13} argued that the main reason for these differences is the cut-off they used to fit the data. 
  
-our results for the whole-galaxy fit of the K-S law show that using total gas gives a sub-linear relation between \sigmasfr and \sigmatotalgas. While, for using the H$_{2}$ only gas or HI only gas we find the nearly super-linear relation. These results are different from power indices estimated by \cite{Ford13}, $N=2.03\pm0.04$ in case of total gas and $N=0.6\pm0.01$ in case of H$_{2}$ only gas. \cite{Tabatabaei10} estimated the K-S law power index $N=1.30\pm0.05$ using the total gas and $N=0.96\pm0.03$ using the H$_{2}$ only gas. The reason behind these differences is mostly because of the statical method we chose. The OLS fitting using H$_{2}$ only gas gives us the power index of $N=0.57\pm1e-4$ which is close to \cite{Ford13} results but still different from the results from \cite{Tabatabaei10} which, could be the same reason \cite{Ford13} suggested for discrepancy between their results and results from \cite{Tabatabaei10}. However, results from the OLS fitting with \sigmatotalgas gives the same results as the fitting with the Bayesian method.% Another differences between our calculation with \cite{Ford13} and \cite{Tabatabaei10} is that both of them used the de-projected values for their calculation which, were calculated by multiplying all of their map by factor of $cos(i)$, inclination angle. We didn't include the calculation of effect of the inclination angle in our results. I checked and my reults doesn't changed
+our results for the whole-galaxy fit of the K-S law show that using total gas gives a sub-linear relation between \sigmasfr and \sigmatotalgas. While, for using the H$_{2}$ only gas or HI only gas we find the nearly super-linear relation. These results are different from power indices estimated by \cite{Ford13}, $N=2.03\pm0.04$ in case of total gas and $N=0.6\pm0.01$ in case of H$_{2}$ only gas. \cite{Tabatabaei10} estimated the K-S law power index $N=1.30\pm0.05$ using the total gas and $N=0.96\pm0.03$ using the H$_{2}$ only gas. The reason behind these differences is mostly because of the statical method we chose. The OLS fitting using H$_{2}$ only gas gives us the power index of $N=0.57\pm1e-4$ which is close to \cite{Ford13} results but still different from the results from \cite{Tabatabaei10} which, could be the same reason \cite{Ford13} suggested for discrepancy between their results and results from \cite{Tabatabaei10}. However, results from the OLS fitting with \sigmatotalgas gives the same results as the fitting with the Bayesian method.% Another differences between our calculation with \cite{Ford13} and \cite{Tabatabaei10} is that both of them used the de-projected values for their calculation which, were calculated by multiplying all of their map by factor of $cos(i)$, inclination angle. We didn't include the calculation of effect of the inclination angle in our results.
+%%%% Sahar:I checked and my reults doesn't changed
 
- \cite{Bigiel08} argued that there is no universal relationship between the surface density of the total gas and the SFR. They also showed that the SFR and the molecular hydrogen have a linear relationship. \cite{Shetty13} used the same data as \cite{Bigiel08} and argued that using the hierarchical Bayesian fit leads to significant galaxy-by-galaxy variation between power indices and all of them are lower than \cite{Bigiel08}. Although some of our results in table`\ref{table: res} showed the nearly linear correlation between the SFR and the molecular hydrogen, we couldn't find any specific trend between power indices in the different regions. 
+ \cite{Bigiel08} argued that there is no universal relationship between the surface density of the total gas and the SFR. They also showed that the SFR and the molecular hydrogen have a linear relationship. \cite{Shetty13} used the same data as \cite{Bigiel08} and argued that using the hierarchical Bayesian fit leads to significant galaxy-by-galaxy variation between power indices and all of them are lower than \cite{Bigiel08}. Although some of our results in table`\ref{table:res} showed the nearly linear correlation between the SFR and the molecular hydrogen, we couldn't find any specific trend between power indices in the different regions. 
 
 The sub-linear power index in the case of the total gas surface density suggests that the star formation efficiency is decreasing by increasing the total gas. Consequently, the depletion time increases by increasing the total gas. On the contrary, the super-linear relation suggests that the depletion time is decreasing with increasing the amount of the CO or/and HI gas. The further conclusion is more similar to the initial suggestion of the K-S law. If we assume that stars form in the molecular clouds, the decreasing of the SFE with increasing the total gas is justifiable.  
 
@@ -656,25 +661,13 @@ Thus we can conclude that the stars affect on the SFR in most cases this effect 
 
 \section{Metallicity}
 
-It is well established that metallicity in the centre of M31 is more than the outer disk regions \citep[e.g.][]{Draine14}. Inverse correlation between metallicity and x-factor, which was described in section~\ref{sec:intro} gives the underestimation of the power indices from fitting the K-S law in the case of the molecular gas only and total gas. Thus power index of the K-S law is more closer to the original suggestion for the KS law ($\lt N \sim 1.56$). Moreover, results of \cite{Krumholz09} showed that a correlation between SFR and metallicity is strongly depends on amount of total gas in galaxies. We could not see any correlation between the SFR and metallicity in sub-kiloparces regions~\ref{fig:metal}. We estimated the SFR using \cite{Krumholz09} star formation rate for regions with size of $\sim$750~pc. We found that the SFR calculated using Krumholz law in average 45$\%$ different from the measured SFR. We used an average value of metallicity 1.65, clumping factor of 1.2 to get this results. A through calculation is needed to solve the issue of this controversy which is beyond scope of this paper.  
+It is well established that metallicity in the centre of M31 is more than the outer disk regions \citep[e.g.][]{Draine14}. Inverse correlation between metallicity and x-factor, which was described in section~\ref{sec:intro} gives the underestimation of the power indices from fitting the K-S law in the case of the molecular gas only and total gas. Thus the calculated power index of the K-S law is more than we showed in table~\ref{table:res}. Another correlation between components of the SFR laws and metalicity was introduced by \cite{Krumholz09}. They found a new SFR law based on a correlation between SFR and metalicity, and suggested that this correlation is strongly depends on amount of total gas in galaxies. We estimated the SFR using \cite{Krumholz09} SFR laws for regions with size of $\sim$750~pc. Using the mid value of metallicity, 1.65, and clumping factor of 1.2, We found that the SFR calculated using Krumholz law in average 45$\%$ different from the measured SFR(FUV + 24 $\mu$m) in this work. %Another way to talk about this law is to show the equation and introduced all the factors and adding that we used it and found this result! . 
 
- \cite{Mannucci10} and \cite{Lilly13} assumed the K-S law holds for their sample of study and obtained a correlation between, metallicity and the stellar mass, the gas mass and the SFR. They found that increasing both the SFR and the stellar mass increases metallicity, but increasing the gas mass decreases metallicity (equation 9 in \citep{Mannucci10}). However, by considering results from \cite{wong13} regarding the dependency of rate of HI-H$_2$ conversion to metallicity, \cite{Roychowdhury15} showed that the KS law is independent of metallicity in galaxies with HI as a dominant gas. As demonstrated in ~\ref{fig:metal}, we plot metallicity versus the SFR and the stellar mass, and could not find any correlation.
+In more recent studies, \cite{Mannucci10} and \cite{Lilly13} assumed the K-S law holds for their sample of local and high-redshift galaxies and obtained a correlation between, metallicity and the stellar mass, the gas mass and the SFR. They found that increasing both the SFR and the stellar mass increases metallicity, but increasing the gas mass decreases metallicity (equation 9 in \citep{Mannucci10}). However, by considering results from \cite{wong13} regarding the dependency of rate of HI-H$_2$ conversion to metallicity, \cite{Roychowdhury15} showed that the KS law is independent of metallicity in galaxies with HI as a dominant gas. As demonstrated in ~\ref{fig:metal}, we plot metallicity versus the SFR(FUV + 24 $\mu$m) and the stellar mass, and could not find any correlation. We also calculated the Pearson correlation coefficient between metallicity and the SFR, and metallicity and the stellar mass to be 0.07 and 0.04, which confirmed that there is no correlation between metallicity and neither the SFR  nor the stellar mass. Although, we could not find any direct correlation between the SFR and metallicity, we should note that effect of the metallicity on SF laws is ambiguous and more high resolution data is needed to complete this puzzle.
 
 \begin{figure*}
-    \centering
-    \begin{subfigure}[b]{053\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{metal_vs_sfr.png}
-        \caption{SFR(FUV + 24 $\mu$m) vs matalicity surface density}
-        \label{fig:mtal_sfr}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.5\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{metal_vs_star.png}
-        \caption{Stellar mass vs metalicity surface density}
-        \label{fig:metal_star}}
-    \end{subfigure}
+\centering
+\includegraphics[width=162mm]{metal12.png}
     \caption{Right: the SFR(FUV + 24 $\mu$m) surface density versus metalicity surface density and left: Stellar mass vs metalicity surface density  shows the stellar mass. Each point shows a region with size of $\sim$750~pc. The regions with $R< 8\kpc$, $8\kpc < R < 18\kpc$, and $18\kpc < R \la 25\kpc$ are shown in red, green and blue, respectively.}
     \label{fig:metal}
 \end{figure*}
@@ -684,16 +677,18 @@ It is well established that metallicity in the centre of M31 is more than the ou
 %----------------------------------------------------------------------------------------
 \section{Summary}
  We investigated the K-S law, the extended Schmidt law and the Krumholz law in both global and local scales in M31. We have determined surface density of star formation rate, gas mass and the stellar mass of this galaxy. We produced three SFR maps in M31. The first uses a combination of the FUV and 24 \um emission. For the second SFR map, we used a combination of the H$\alpha$ and 24 \um emission, and the third one was produced using total-infrared luminosity. We noticed that H$_\alpha$ data available for M31 is not suitable for SFR study ~\ref{app:halpha}. We calculated the total SFR from FUV and 24 \um emission is 0.31$\pm$ 0.04 M$_{\odot}$yr$^{-1}$. We also produced the ISM map, using molecular gas only, atomic gas only and the total gas.
-
+\newline
 1) We found the power index of the K-S law is mostly depended on which gas we use as a tracer of the gas mass in galaxy. And it is mostly independent of the SFR tracer.
-
+\newline
 2) We showed that, using different fitting methods gives us different results
-
+\newline
 3) Our results showed although there is a correlation between \sigmasfr and \sigmagas, it is not the same in all regions in M31. 
-
+\newline
 4) We confirmed \cite{Shi11} suggestions that the surface density of stars has impact on the SFR, and in regions with law gas surface brightness this impact is even more important. 
-
-5) We could not find any relation between SFR and metallicity.
+\newline
+5) We performed statistical tests to find any correlation between the SFR, or the stellar mass surface density and metallicity, and we could not find any.
+\newline
+Obtaining images with higher resolution and maps with better coverage of this galaxy will enable us to continue these studies in finer details and will enhance our chances of discovering new star forming regions and novel phenomena.
 
 
 %----------------------------------------------------------------------------------------
