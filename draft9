@@ -1,0 +1,700 @@
+\documentclass[useAMS,usenatbib]{mn2e}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{natbib}
+\bibliographystyle{mn2e}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multirow}
+
+\newcommand \kpc        {\,{\rm kpc}}
+\newcommand \sigmagas    {$\Sigma_{\rm \bld {gas }} $\ }
+\newcommand \sigmatotalgas {$\Sigma_{\rm \bld {total gas }} $\ }
+\newcommand \eqsigmagas    {\Sigma_{\rm \bld {gas }}}
+\newcommand \sigmasfr     {$\Sigma_{\rm \bld {SFR }} $\ }
+\newcommand \eqsigmasfr     {\Sigma_{\rm \bld {SFR }}}
+\newcommand \sigmastar    {$\Sigma_{\rm \bld {star }} $\ }
+\newcommand \eqsigmastar    {\Sigma_{\rm \bld {star }}}
+\newcommand \halpha    {H$\alpha $\ }
+\newcommand \um    {$\mu$m\ }
+\newcommand \mice {$\mu$m}
+\newcommand \nprime {N$^\prime$}
+\newcommand \eqnprime {N^\prime}
+\newcommand \Spitzer {{\it Spitzer }}
+\newcommand \Galex {GALEX }
+\newcommand \Herschel {{\it Herschel}}
+\newcommand \aaj {A\&A}
+\newcommand \aarv {A\&ARv}%: Astronomy and Astrophysics Review (the)
+\newcommand \aas{A\&AS}%: Astronomy and Astrophysics Supplement Series
+\newcommand \afz {Afz}%: Astrofizika
+\newcommand \aj {AJ}%: Astronomical Journal (the)
+\newcommand \apss {Ap\&SS}%: Astrophysics and Space Science
+\newcommand \apj {ApJ}
+\newcommand \apjs {ApJS}%: Astrophysical Journal Supplement Series (the)
+\newcommand \araa {ARA\&A} %: Annual Review of Astronomy and Astrophysics
+\newcommand \asp {ASP Conf. Ser.}%: Astronomy Society of the Pacific Conference Series
+\newcommand \azh {Azh}%: Astronomicheskij Zhurnal
+\newcommand \baas {BAAS}%: Bulletin of the American Astronomical Society
+\newcommand \mem {Mem. RAS}%: Memoirs of the Royal Astronomical Society
+\newcommand \mnassa {MNASSA}%: Monthly Notes of the Astronomical Society of Southern Africa
+\newcommand \mnras {MNRAS} %: Monthly Notices of the Royal Astronomical Society
+%\newcommand {Nature}%(do not abbreviate)
+\newcommand \pasj {PASJ}%: Publications of the Astronomical Society of Japan
+\newcommand \pasp {PASP}%: Publications of the Astronomical Society of the Pacific
+\newcommand \qjras {QJRAS}%: Quarterly Journal of the Royal Astronomical Society
+\newcommand \mex {Rev. Mex. Astron. Astrofis.}%: Revista Mexicana de Astronomia y Astrofisica
+%\newcommand {Science }%}%(do not abbreviate)
+\newcommand \sva {SvA}%: Soviet Astronomy
+\newcommand \aap {APP} %:American Academy of Pediatrics
+\newcommand \apjl {ApJL} %:The Astrophysical Journal Letters
+
+\begin{document}
+% TITLE
+\title[STAR FORMATION LAWS IN M31]{Star formation laws in the Andromeda galaxy: gas, stars, metals and the surface density of star formation}
+%PB150629: suggestion (not sure it's better): Star formation laws in the Andromeda galaxy: gas, stars, metals and the surface density of star formation
+%older: Star formation laws in the Andromeda galaxy: gas mass, stellar mass, and metallicity
+\author[S. Rahmani, et. al.]{S.~Rahmani, S.~Lianou, P.~Barmby\\
+Department of Physics $\&$ Astronomy, Western University, London, ON N6A 3K7, Canada}
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+\begin{abstract} 
+ We investigate star formation laws in the Andromeda galaxy (M31), studying the effects of gas surface density (\sigmagas), stellar surface density and metallicity on the star formation rate (SFR) on both local ($\sim$30~pc, $\sim$155~pc, and $\sim$750~pc) and global scales. Using a combination of \halpha and 24 \um emission, a combination of far-ultraviolet and 24 $\mu$m, and the total infrared emission, we estimate the total SFR in M31 to be in the range $0.35-0.40\pm 0.04$~M$_{\odot}$~yr$^{-1}$. 
+ %We use maps of $^{12}$CO and 21 cm emission to produce the \sigmagas map. 
+ We produced a stellar mass surface density map using IRAC 3.6 $\mu$m emission and measured the total stellar mass to be $6.9 \times 10^{10}$~M$_{\odot}$. Hierarchical Bayesian regression analysis was applied to fit the star formation power laws. For the Kennicutt Schmidt (K-S) law in M31, we find the power-law index to be in the range $0.52<N < 2.87$. The power-law index index varies more with gas tracer than with SFR tracer, and changes with distance from the centre of the galaxy. The fitting method is important in studies of the star formation laws: we find that using different fitting methods leads to different power-law indices.  We compared the K-S law and the extended Schmidt law, which includes the stellar mass density, in order to determine which one is more appropriate for M31. We find a correlation between the surface density of SFR and the stellar mass surface density, which confirms that the K-S law needs to be extended to consider the other physical properties of galaxies. We found no correlation between metallicity, the SFR and the stellar mass surface density.
+
+\end{abstract}
+
+\begin{keywords} 
+galaxies: individual: M31, galaxies: spiral, galaxies: star formation, galaxies: stellar content, galaxies: ISM, stars: formation, ISM: clouds, methods: observational, methods: statistical, techniques: image processing 
+\end{keywords}
+%----------------------------------------------------------------------------------------
+%INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+
+\section{Introduction}
+\label{sec:intro}
+%P1: Star formation laws and why they are important (introducing K-S law and E-S law)
+
+Understanding the  processes of formation of stars is a necessary step for explaining the formation and evolution of galaxies from the early universe to the current epoch, as well as the origin of planetary systems. We know that stars form when molecular cloud cores collapse; however, a complete picture explaining the physical processes involved in the formation of stars has yet to emerge. Various phenomena trigger the collapse of molecular clouds and star formation including the environment of the star-forming region, gas accretion and cooling, H$_2$ formation, the distribution and chemical composition of the gas, the presence of dust, and other quantities in a galaxy. The physical processes leading to the formation of stars are naturally complex. Therefore, the basis for a theory of star formation requires a strong foundation of empirical data and/or observations.
+%me
+
+The first attempt at scaling the star formation rate was to find a relation between the total star formation rate (SFR) and the mass of interstellar gas. \cite{Schmidt59} proposed a power law relation between SFR and the gas mass ($M_{\rm gas}$) with {\it N} as the power law exponent. Since then, for more than 50 years, empirical star formation laws (relations) have been investigated using both observational data and numerical simulations. \cite{Kennicutt98a} examined H$\alpha$, HI, and CO observations of 61 normal spiral galaxies and 36 starburst galaxies. He showed that the disk-averaged SFRs and gas densities for these samples are well represented by the Schmidt law with a power-law exponent of $1.4 \pm 0.15$. Using this power-law index index, the Schmidt law can be rewritten as: %me, Schmidt, Kennicutt and every papers on K-S law
+%Should I write laws (relations) or laws/relations?
+%PB 150708: ******
+\begin{equation}
+\label{equ:ks_org}
+\eqsigmasfr \propto \eqsigmagas^{1.4\pm0.15},
+\end{equation}
+where \sigmasfr is the surface density of star formation, and \sigmagas is the surface density of gas in a galaxy. This is often referred to as the Kennicutt-Schmidt (K-S) law.  \cite{Kennicutt07} investigated the K-S law in spatially resolved regions (0.5--2~kpc across) in the spiral galaxy M51. To calculate the SFR, they used a combination of 24 $\mu$m and H${\alpha}$ emission, and for the gas surface density, a constant conversion factor for CO to H$_2$ was applied. They showed that the K-S law also holds locally in galaxies, and found {\it N} to be $1.56 \pm 0.04$. %kennicutt07
+
+The K-S law was applied to different types of both local and high-redshift galaxies \citep[e.g.][]{Boissier07,Kennicutt07, Bigiel08, Freundlich13}, but the results were never precise. Low gas density regions ($ < 1-10\sim$~M$_{\odot}$~pc$^{-2}$), such as regions outside the disks of galaxies, are an example of the regions for which the K-S law fails. The calculated SFR for these regions is much lower than the value predicted by the K-S law \citep[e.g.][]{Martin01, Bigiel08}. Using different instability models, \cite{Hunter98} showed that in low surface brightness galaxies, the current star formation activity correlates with stellar mass density. Furthermore, a correlation between the star formation rate and the stellar mass density was measured in many studies using both observational data and numerical simulations \citep[e.g.][]{Hunter04,Leroy08,Krumholz09,Shi11,Kim11,Kim13}. \cite{Shi11} found a close relationship between stellar mass surface density, SFR and gas surface density by studying a large sample of galaxies. They showed this relation as a power law and referred to it as the extended Schmidt law:\footnote{\cite{Shi11} introduced the extended Schmidt law as a power law relation between the star formation efficiency (SFE, surface density of SFR per surface density of gas) and \sigmastar, but we are using the equation~\ref{equ:es_org}, which is equation 5 in their paper, to be consistent with equation~\ref{equ:ks_org}.}: %me + all the ppl I cite
+\begin{equation}
+\label{equ:es_org}
+\eqsigmasfr \propto \eqsigmagas^{\eqnprime} \eqsigmastar^{\beta},
+\end{equation}
+where \sigmasfr is the SFR surface density while \sigmagas and \sigmastar are the gas mass and stellar mass surface densities, \nprime and $\beta$ are the indices found by \cite{Shi11} to be $1.13 \pm 0.05$ and $0.36\pm0.04$, respectively, in the global case. By testing this relation in sub-kiloparsec resolution regions in 12 spiral galaxies, they showed that the extended Schmidt law works just as well as the K-S law in spatially resolved regions ($\sim$1~kpc). Furthermore, they found the power-law indices for the local regions to be $\eqnprime = 0.80 \pm 0.01$ and $\beta = 0.63\pm0.01$, and concluded that this law is acceptable for low surface brightness galaxies and regions where the K-S law fails.%me
+
+%P5: How to measure it
+A galaxy's metallicity is another physical quantity that likely plays a role in the rate of star formation. However, it affects each component of star formation laws in a different way, making it complicated to fully understand its implications. There are many studies on the correlation of metallicity with stellar mass and SFR, as well as the effect of metallicity on the interstellar medium \citep[ISM, e.g.][]{Boissier03, Leroy08, Krumholz09, Mannucci10, Dib11a, Lilly13}. These studies suggest that metallicity has a critical role on the formation of H$_2$ gas. Thus there should be a correlation between metallicity and the SFR. \cite{Krumholz09} introduced a theoretical SFR law which suggests that the SFR and metallicity of galaxies have a power-law correlation, but the power-law index changes with the amount of total gas. %should I say more?
+ Using results obtained from both observations and analytical models, \cite{Mannucci10} and \cite{Lilly13} showed that metallicity depends on both stellar mass and the SFR, which they referred to as the `fundamental metallicity relation'. They found that at any fixed stellar mass, metallicity and the SFR have an inverse correlation. It should be noted that the above two correlations are only valid in the global case. However, \cite{Leroy08} showed that the SFR as computed from far-ultraviolet (FUV) and 24$\mu$m emission does not change with changing metallicity. \cite{Roychowdhury15} argued that in nearby spiral galaxies, the effect of metallicity on the SFR calculation is smaller than the calibration errors and can be ignored. On the other side, \cite{Boissier03} showed that metallicity has an inverse correlation with the CO-H$_2$ conversion factor. Therefore, using a constant conversion factor causes overestimation of the molecular gas in high-metallicity regions and underestimation in low-metallicity regions. 
+
+
+%P2: SFR, measuring, scaling, ...
+In order to investigate star formation laws, the first step is to calculate the SFR. Many studies have been devoted to determining how flux measurements of star-forming regions can be accurately  translated into the rate of formation of new stars \citep[e.g.][]{Kennicutt12, Calzetti13, Zhu08, Kennicutt09, Boquien10, Boquien11, Hao11}. \cite{Kennicutt98b} calibrated the luminosity of galaxies as a way of measuring the SFR in specific wavelengths using relations between the SFR per unit mass or per unit luminosity and the integrated colour of the system provided by synthesis models \citep[e.g.][]{Bruzual93}. Subsequent studies tried to find a similar calibration for measuring the SFR of galaxies in other bands. \cite{Kennicutt09} and \cite{Hao11} introduced new SFR calibrations using a combination of \halpha or FUV and far-infrared (FIR) emission. In addition to using suitable calibrations for each region, considering the differences between the global and local ($\sim 0.5-1$~\kpc) cases is important. In $\S$~\ref{sec:sfr}, we will discuss the SFR in the Andromeda galaxy and how it was determined. %me and Keniccutt98b and then me again, with Maryam's corrections
+
+%P3: Gas cloud, variety, observing etc
+Calculating the surface density of gas in galaxies is another important parameter in testing star formation laws. Considering the effect of the interstellar medium (ISM) is essential in understanding star formation laws since stars are born from gas and also release their material into the ISM when they reach the end of their evolution. A map of the total gas in the ISM is produced by direct observations of the gas or by using interstellar dust as a tracer. Neutral and molecular hydrogen are the most common elements in the ISM. Therefore, to produce a map of the total gas in galaxies, maps of these two components can be added together and multiplied by a constant factor to account for unobserved heavier elements, mostly He. Our calculations of the gas surface density for the Andromeda galaxy are shown in $\S$~\ref{sec:ISM}. %me
+
+%P4: Stellar mass and how to measure it
+For testing the Extended Schmidt law, measuring the stellar mass density is necessary. Measuring the mass of stellar populations is indirect and subject to significant uncertainties. One method to calculate the stellar mass within a galaxy is based on stellar population models \citep[e.g.][]{ Bruzual93, Kotulla09}. These models are used to connect stellar mass to an observable quantity such as luminosity in different wavelengths, colours, spectral energy distribution from spectroscopy or multi-band observations. Having various methods to measure stellar mass helps to compare the results and determine whether there are any systematic differences. Comparing the results from measuring the stellar mass via different methods in stellar clusters shows no significant difference \citep{Tamm12}. In fact, the differences are found to be on the order of a few x10 percent; so one should be more careful to model subtleties \citep{McLaughlin05}.
+Section $\S$~\ref{sec:starmass} describes our calculations of stellar mass in the Andromeda galaxy. 
+%me and Tamm and the rest I cited
+
+
+
+%P6(2*): What we did and why Andromeda
+In this paper, we present our results from testing and comparing  the K-S law and the Extended Schmidt law on the Andromeda galaxy (M31). Additionally, we applied these two laws to three different regions in M31 to determine if there is any dependence on distance from the centre of the galaxy. Since M31 is the nearest spiral galaxy to our own, high resolution images of this galaxy are available, providing data from various regions with different physical properties (e.g. metallicity, surface brightness, gas density). This inside look helps us test star formation laws in diverse physical conditions. Thus M31 is a suitable testbed for studying scaling laws. %me
+
+Previous work on SFR scaling laws in the Andromeda galaxy \citep[e.g.][]{Tabatabaei10,Ford13} has used different methods and data, resulting in different values for the power-law index between 0.5 and 2.  \cite{Ford13} tested the K-S law on six regions with varying radii from the centre of the galaxy, using three different ISM maps (H$_2$ only, total gas calculated from H$_2$ plus HI maps, and total gas calculated from dust emission). The measured power-law indices for the different maps and regions vary from 0.6 to 2.03. The origin of these variations in the results is still an open question. It is unclear whether it depends on distance from the centre of the galaxy, metallicity, gas tracers, SFR tracers, fitting methods, or because of the K-S law fails to work in M31. In order to examine the dependence of the results on the fitting method, we also applied a new statistical method instead of Ordinary Least Square (OLS) fitting, which is more commonly used in the literature to test the K-S law ($\S$~\ref{sec:fitting}). %me
+
+
+
+
+%----------------------------------------------------------------------------------------
+%DATA
+%----------------------------------------------------------------------------------------
+\section{Observational data}
+\label{sec:data}
+Being the closest large galaxy to the Milky Way, M31 has extensively been studied using both ground- and space-based telescopes. Therefore, large datasets exist on M31 spanning from gamma-ray to radio wavelengths, allowing us to measure all the required parameters to test star formation laws in this galaxy. Table~\ref{table:data} lists the data we used in this paper. Each image has a different angular resolution and pixel size. In order to match the images at different wavelengths, we smoothed the maps to the same FWHM using the kernel library and convolution code of \citet{Aniano12}. Our final results have two different angular resolutions depending on which gas tracer is used. For studying the correlations between the SFR and molecular gas, our maps have the same resolution and pixel size as the $^{12}$CO(J:$1\rightarrow0$) data, while for investigating the relationships between the SFR and atomic gas (or total gas), we smoothed and re-gridded our maps to the resolution and pixel size of the atomic gas map. 
+%PB150708: note change from "smaller FWHM" to "the same FWHM" -- OK?/doen
+
+\begin{table*}
+\centering
+\caption{Observational data used in this study.}
+\label{table:data}
+\begin{tabular}{@{}lcccc}
+\hline\hline
+Wavelength & FWHM & Coverage area &Telescope
+& Ref. \\
+\hline
+1550~\AA & 4\arcsec.5 & 5\degr $\times$ 5\degr &GALEX & \cite{Martin05}\\  
+2250~\AA & 6\arcsec & 5\degr $\times$ 5\degr &GALEX & \cite{Martin05}\\   %PB150708: do we use the NUV data? Yes we used it to find stellar emission when we calculaed the sfr(fuv)
+6570~\AA  & 1\arcsec & 2\arcmin.2 $\times$ 0\degr.6 &KPNO& \cite{Massey07}\\
+3.6~\um & 1\arcsec.7 & 3\degr.7 $\times$ 1\degr.6 &\Spitzer & \cite{Barmby06} \\ 
+4.5~\um & 1\arcsec.7 & 3\degr.7 $\times$ 1\degr.6 &\Spitzer & \cite{Barmby06} \\ %PB150708: do we use the 4.5um data?
+8~\um & 1\arcsec.9 & 1\degr $\times$ 3\degr &\Spitzer & \cite{Barmby06} \\ 
+24~\um & 6\arcsec & 1\degr $\times$ 3\degr &\Spitzer & \cite{Gordon06} \\ 
+70~\um & 18\arcsec & 1\degr $\times$ 3\degr &\Spitzer & \cite{Gordon06} \\
+160~\um & 12\arcsec & 5\degr.5 $\times$ 2\degr.5 &\Herschel & \cite{Fritz12} \\
+350~\um & 24\arcsec.9 & 5\degr.5 $\times$ 2\degr.5 &\Herschel & \cite{Fritz12} \\
+2.6~mm & 23\arcsec & 2\degr $\times$ 0\degr.5 &IRAM 30-m & \cite{Nieten06}\\
+21~cm & 60\arcsec $\times$ 90\arcsec & 5\degr.2 $\times$ 1\degr.5 &DRAO & \cite{Chemin09}\\
+\hline
+\end{tabular}
+\end{table*}
+
+%PB150708: have combined several paragraphs into one here, and removed some sentences.
+Several different observational datasets are used to compute properties of M31 for testing star formation laws.
+One method for calculating the SFR uses FUV emission as a tracer of the star-forming regions: for this we
+use the FUV image of M31 as observed by the Galaxy Evolution Explorer (GALEX; \cite{Martin05}). 
+%The GALEX telescope data contains information for two bands, FUV:1350--1750 and NUV:1750--2750~\AA, with FWHM of 4~\farcs5, and 6~\arcsec.
+%PB150708: don't think we need previous sentence.
+Our other method to calculate the SFR involved using a combination of \halpha and 24 $\mu$m emission. \citet{Massey06, Massey07} mapped M31 in broad and narrow bands, including \halpha, as part of the Nearby Galaxies Survey using the KPNO 4-m telescope. 
+%PB150708: moved some material from here to appendix.
+A detailed description of how our \halpha map is made can be found in Appendix~\ref{app:halpha}.
+
+%\subsection{IR and sub mm Data}
+Calculations of the SFR using the total infrared emission requires observations at 8, 24, 70, and 160~\um, made
+with the {\em Spitzer} \citep{Werner04} and {\em Herschel} \citep{Pilbratt10}  space telescopes. 
+Observations with the Infrared Array Camera (IRAC; \citep{Fazio04}) are made in four channels (3.6, 4.5, 5.8, and 8~\um); IRAC observations of M31 were obtained by \cite{Barmby06}, covering a region $3\degr.7 \times 1\degr.6$. 
+The Multiband Imaging Photometer for \Spitzer (MIPS) observed M31 at 24, 60, and 160 \um and covered a region $\sim 1\degr \times 3\degr$ \citep{Gordon06}. {\em Herschel} observations of M31 were made with with PACS \citep[Photodetector Array Camera and Spectrometer;][]{Poglitsch10}  at 100 and 160~\um and SPIRE  \citep[Spectral and Photometric Imaging Receiver;][]{Griffin10} 
+at 250, 350, and 500~\um, covering a region  $\sim 5\degr.5 \times 2\degr.5$ \citep{Fritz12}.
+The IRAC 8, MIPS 24, MIPS 70, and PACS 160 images were used to calculate M31's total infrared emission. 
+The IRAC 3.6~\um band image was used to calculate the stellar mass. 
+
+%\subsection{Radio Emission}
+Gas densities in galaxies are derived from observations at millimetre and centimetre radio wavelengths.
+Emission from the $^{12}$CO (J:$1\rightarrow0$) line observed on-the-fly with the IRAM 30-m telescope \citep{Nieten06} was used to calculate the H$_2$ column density of M31's interstellar medium. This map covers a $2\degr \times 0\degr.5$ region with an angular resolution of $23\arcsec$ and has the smallest coverage of the galaxy among the maps we used in this paper. In this study, we also used a 21-cm emission map of the atomic gas (HI) in M31 from \cite{Chemin09}. This map was made using the synthesis telescope at the Dominion Radio Astrophysical Observatory and covers a $X\degr \times X\degr$ region with an angular resolution of $X\arcsec$. %PB150708:   please fill in Xs in previous sentence.
+
+\section{Measuring the components of star formation laws}
+%Before studying the star formation laws, first we need to calculate the components of these laws. In this section we are showing how we measured every ingredients using available data, and calibrations. In this project we used \cite{Kroupa01} IMF. We
+
+%----------------------------------------------------------------------------------------
+%STAR FORMATION RATE
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+\subsection{Star formation tracers}
+\label{sec:sfr}
+\subsubsection{FUV plus 24 $\mu$m Star Formation Rate}
+
+Our first star formation map was produced using a combination of FUV emission and 24 \um emission. Since the peak of the emission of massive and young stars (O-B and A type) is in the UV part of the spectrum, this wavelength is one of the most commonly used star formation rate indicators \citep[e.g.][]{Kennicutt89}. The UV emission traces recently formed stars ($\sim 100$ Myr) \citep[e.g.][]{Kennicutt98a, Calzetti05}. However, the downside of only using the FUV light as a tracer of the star-forming region is that this emission is very sensitive to dust extinction. On the other hand, 24 \um emission is dominated by emission from dust heated by UV photons from young and hot stars. This emission is sensitive to the star formation timescale of $\la10$ Myr \citep{Calzetti07}. The FUV band of \Galex and the 24 \um band of \Spitzer were used to measure the SFR calibrated by \cite{Hao11} using nearby galaxies, assuming a \cite{Kroupa01} IMF, as:
+\begin{equation}
+\label{equ: fuvplus24}
+{\rm SFR} =4.46\times10^{-44}[L({\rm FUV})_{\rm obs}+3.89L(24\mu m)],
+\end{equation}
+where SFR is in M$_{\odot}$~yr$^{-1}$, and L(24$\mu$m) and L(FUV)$_{\rm obs}$ are in erg~s$^{-1}$. L(FUV)$_{\rm obs}$ is the luminosity of the galaxy in the far-UV, where the subscript "obs" indicates that the emission is not corrected for extinction within M31. The FUV emission was corrected for emission from foreground stars using a method introduced by \cite{Leroy08}. We masked out pixel values in the FUV$_{\rm obs}$ map for which $I_{\rm NUV}/I_{\rm FUV}>15$, assuming that those pixels are dominated by foreground emission. Then we smoothed the FUV map to have the same angular resolution and pixel size as the MIPS 24 $\mu$m, and masked the same regions in the galaxy for the 24 \um map. Figure \ref{fig:sfr,fuv} shows the combined SFR(FUV+24 $\mu$m) map. Adding all the pixel values in the map, we calculate the total SFR to be $0.31\pm 0.04$~M$_{\odot}$~yr$^{-1}$.
+
+
+\begin{figure*}
+    \centering
+    \begin{subfigure}[b]{1\textwidth}
+        \centering
+        \includegraphics[width=164mm]{sfr_fuv.eps}
+        \caption{SFR(FUV+24 $\mu$m)}
+        \label{fig:sfr,fuv}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{1\textwidth}
+        \centering
+        \includegraphics[width=164mm]{sfr_halpha.eps}
+        \caption{SFR(H$_{\alpha}$)}
+        \label{fig:sfr_halpha}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{1\textwidth}
+        \centering
+        \includegraphics[width=164mm]{sfr_fir.eps}
+        \caption{SFR(TIR)}
+        \label{fig:sfr,fir}
+    \end{subfigure}
+    \caption{SFR map from a combination of FUV and 24 $\mu$m emission (top), \halpha and 24 $\mu$m emission (middle), and total infrared emission (bottom). All the maps have angular resolution of 18\arcsec and pixel size of 9.85\arcsec, the same as the MIPS 70~$\mu$m map.}
+    \label{fig:sfrs}
+\end{figure*}
+
+\subsubsection{\halpha plus 24 \um Star Formation Rate}
+\label{sec:sfr_halpha}
+%PB150629: is there material from the appendix that should be moved here? We agreed to delete the appendix, right?
+
+The SFR can also be calculated using a combination of \halpha and \Spitzer 24 \um data. \halpha emission of galaxies is dominated by light emitted from young and massive stars. The star formation timescale traced by this emission is $\sim 6-10$ Myr \citep[e.g.][]{Kennicutt09, Calzetti13}. Therefore, \halpha alone could be used to calibrate the SFR \citep[e.g.][]{Osterbrock06, Kennicutt09}. However, \halpha emission is sensitive to dust extinction. Therefore, the combination of the \halpha and 24\um is considered a better choice for calculating the SFR. We used a calibration introduced by \cite{Kennicutt09} to measure the SFR:
+\begin{equation}
+\label{equ: halphaplus24_g}
+{\rm SFR} = 5.5 \times 10^{-42}[L(H{\alpha})_{\rm obs} + 0.020L(24\mu m)]
+\end{equation}
+where $L(H{\alpha})_{\rm obs}$ is the observed \halpha luminosity without correction for internal dust attenuation, given in the unit of erg~s$^{-1}$. L(24$\mu$m) is the $24\mu$m IR luminosity in erg~s$^{-1}$, and SFR is in M$_{\odot}$yr$^{-1}$. It was indicated that the formulation above can only be used for the global situation i.e., the total SFR.
+
+\cite{Calzetti07} introduced a new calibration using the same bandpasses in the case of local regions (Figure~\ref{fig:sfr_halpha}):
+\begin{equation}
+\label{equ: halphaplus24_l}
+SFR = 5.5 \times 10^{-42}[L(H{\alpha})_{obs} + 0.033L(24\mu m)]
+\end{equation}
+the units here are the same as equation~\ref{equ: halphaplus24_g}. Equation~\ref{equ: halphaplus24_l} is useful for regions less than $\sim 1$~kpc.  The total SFR calculated from equation~\ref{equ: halphaplus24_g} is $0.35 \pm 0.01$~M$\sun$~yr$^{-1}$, which is in good agreement with previous studies.
+%PB150708: it's not clear from the above 2 paragraphs which calibration was actually used.
+
+
+\subsubsection{Total Infrared Star Formation Rate}
+\label{sec:sfr_fir}
+The total infrared (TIR) emission of a galaxy can also be used as a tracer of the SFR. Dust absorbs radiation from hot and young stars and re-emits it at infrared wavelengths; however, there is no one-to-one mapping between IR and UV emission. Therefore, integrating over the full wavelength range of the IR part and calculating the TIR luminosity can be considered a better tracer of the SFR instead of IR single-band emission \citep{Calzetti13}. \cite{Calzetti13} assumed that stellar bolometric emission is completely absorbed and re-emitted by dust, i.e., $L_{\rm star}({\rm bol}) = L({\rm TIR})$, and calibrated the TIR luminosity of a system to calculate the SFR for a stellar population undergoing constant star formation over 100 Myr:
+\begin{equation}
+\label{equ:sfr_fir}
+SFR({\rm TIR}) = 2.8 \times10^{-44}L({\rm TIR}),
+\end{equation}
+where SFR(TIR) and L(TIR), the star formation rate calculated from TIR emission and TIR luminosity, are in M$_{\odot}$~yr$^{-1}$ and erg~s$^{-1}$, respectively. Part of the dust emission in galaxies (specially in M31) comes from the dust heated by the cosmic background radiation \citep[e.g.][]{Dole06, Calzetti13, Mattsson14}, hence, using equation~\ref{equ:sfr_fir} overestimates the SFR in M31.  
+
+Total infrared luminosity can be measured by integrating the infrared part of the spectral energy distribution of a galaxy or combining photometric data at different IR wavelengths. As an example of the second approach, \cite{Draine07} modelled \Spitzer data and calibrated IR single-band photometry data to calculate the TIR luminosity. \cite{Boquien10} tested and modified this calibration as:
+\begin{equation}
+ \label{equ:TIR}
+L({\rm TIR}) = 0.95L(8) + 1.15L(24) + L(70) + L(160),
+\end{equation}
+where L(8), L(24), L(70), and L(160) are luminosities of the galaxy at 8~$\mu$m, 24~$\mu$m, 70~$\mu$m, and 160~\um in units of erg~s$^{-1}$. We used results from equation~\ref{equ:TIR} in the equation~\ref{equ:sfr_fir} to calculate our third map of the SFR of M31 (Figure~\ref{fig:sfr,fir}). Using this method, we calculated the total SFR by adding all the pixels to be $0.40 \pm 0.04$~M$_{\odot}$~yr$^{-1}$. Table~\ref{table:sfr} compares the total SFR from the literature and the present work. 
+
+\begin{table*}
+\begin{minipage}{100mm}
+\caption{Recent measurements of M31's total star formation rate}
+\label{table:sfr}
+\begin{tabular}{@{}lcc}
+\hline\hline
+Ref.&Method&SFR(M$_{\odot}$yr$^{-1}$) \\
+\hline
+This work&FUV and 24 $\mu$m&0.31\\
+This work&\halpha and 24 $\mu$m&0.35 \\
+This work&TIR luminosity&0.4 \\
+\cite{Ford13}&FUV and 24 $\mu$m&0.25\\
+\cite{Ford13}&TIR luminosity&0.48-0.52\\
+\cite{Azimlu11}& \halpha and 24 $\mu$m&0.34\\
+\cite{Azimlu11}&Extinction corrected \halpha&0.44\\
+\cite{Tabatabaei10}&Extinction corrected \halpha&0.27--0.38\\
+\cite{Barmby06}&Infrared 8\um luminosity& 0.4\\
+\hline
+\end{tabular}
+\end{minipage}
+\end{table*}
+
+
+%----------------------------------------------------------------------------------------
+%ISM
+%----------------------------------------------------------------------------------------
+\subsection{Gas surface density tracers}
+\label{sec:ISM}
+
+The molecular form of hydrogen is very difficult to detect. Therefore, CO (usually the $J(1\rightarrow 0)$ rotational transition, observed at 2.6 mm) is used as a tracer of the mass of molecular clouds dominated by molecular hydrogen \citep[see, for example,][] {Sanders84}. Higher rotational transitions of CO can be used as a tracer as well, but they are not as common as $J(1\rightarrow 0)$. The relation between CO emission and H$_2$ cloud mass is usually written as:
+\begin{equation}
+\label{equ:conversion}
+\rm N_{{\rm H}_2}/\rm cm^{-2} = X_{CO} \times I_{CO}/\rm K km s^{-1}
+\end{equation}
+where X$_{CO}$ is the conversion factor (also known as the X-factor). The X-factor could be different in regions within a galaxy due to differences in metallicity \citep{Wilson95, Bosselli02, Bolato13}. In the case of M31, several different values of the X-factor ($1-5.6 \times 10^{20}$) were adopted in previous studies \citep[e.g.][]{Ford13, Bolato13, Leroy11, Bolato08, Nieten06}. Since any constant difference in X-factor leads to horizontal changes in a plot of star formation rate versus gas density, and does not affect our power-law indices for molecular gas, we chose $X_{\rm {CO}}= 2 \times 10^{20}$,  the same as many other works \citep[e.g.][]{Ford13, Smith12}. Since the HI mass dominates over the H$_2$ mass in M31, the constant X-factor has negligible effect on the total gas mass. The total gas mass was calculated from:
+\begin{equation}
+\label{equ:total_gas}
+\rm M_{\rm \bld {total \, gas}} = 1.36[M_{\rm HI}+M_{\rm H_2}]
+\end{equation}
+where the factor of 1.36 is a constant accounting for effects of He and the other heavier elements on the total gas mass, M$_{HI}$ is the mass of neutral hydrogen obtained from 21~cm observations, and M$_{{\rm H}_2}$ is calculated from equation~\ref{equ:conversion} in units of M$_{\sun}$~pc$^{-2}$.
+%PB150708: some info is missing here: how do you go from N_{H_2} to M$_{H_2}$, and how do you get M_{\rm HI} from the 21cm data? (or did Chemin already do the conversion?)
+
+%----------------------------------------------------------------------------------------
+%STELLAR MASS
+%----------------------------------------------------------------------------------------
+\subsection{Stellar mass}
+\label{sec:starmass}
+\begin{figure*}
+\centering
+\includegraphics[width=164mm]{star.eps}
+\caption{Stellar mass surface density of M31, produced using IRAC 3.6~$\mu$m data and the calibration presented in equation~\ref{equ:eskew}. Pixel size is 4\farcs3 and angular resolution of 1\farcs7.}
+%PB150708: "pixel size of 4.3\arcsec and angular resolution of 1\arcsec.7" doesn't quite make sense to me; shouldn't
+%the pixel size be smaller than the angular resolution?
+\label{fig:stellarmass}
+\end{figure*}
+
+Near-infrared bands, such as 3.6$\mu$m, 4.5\um and K band, are almost insensitive to the emission from young stellar populations, dust absorption and emission, which makes them good tracers of the mass of the older stellar populations \citep[e.g.][]{Elmgreen84, Eskew12, Zhu10}. We calculated the stellar mass within M31 using the calibration of 3.6~\um flux by \cite{Eskew12}. They used data from the Large Magellanic Cloud to find an empirical relation between the stellar mass and 3.6~\um flux:
+\begin{equation}
+\label{equ:eskew}
+M _{\star}= 10^{5.97} F_{3.6}\left(\frac{D}{0.05}\right)^2
+\end{equation}
+where M$_{\star}$ is the stellar mass in solar masses, $F_{3.6}$ is the 3.6~\um flux in Jy, and $D$ is the distance of the galaxy in Mpc. This calibration is based on the Salpeter IMF \cite{Salpeter55}. Since the Kroupa IMF is adopted for the SFR maps, we divided the constant by 0.61 to correct the calibration for the Kroupa IMF. %PB150708: where does the 0.61 number come from?
+\cite{Eskew12} give two calibrations for calculating the stellar mass; one is equation~\ref{equ:eskew} which only uses 3.6~\um emission and the other uses both 3.6 \um and 4.5 \um emission. Although not mentioned in their paper, we realised that the second calibration can only be used in the case of total stellar mass due to the non-linear dependence of stellar mass on $F_{3.6 \mu m}$ and $F_{4.5 \mu m}$. Figure~\ref{fig:stellarmass} shows the stellar mass map for M31 using IRAC 3.6~\um in the original angular resolution and pixel size of the observed data. Using the coverage map of the IRAC 3.6 \um band we replaced low-coverage pixels with zero M$_{\odot}$; these are the dark blue pixels in this figure.  
+%PB150629: is there something significant about the particular value of 6.4E3?
+Using this method we calculated the total stellar mass of the galaxy by adding all the pixels' values to be $6.9 \times 10^{10}$M$_{\odot}$ with 6\% uncertainty. This result is in fair agreement with the result from \cite{Tamm12}. They calculated that stellar mass in M31 to be $(10-15) \times 10^{10}$M$_{\odot}$, 56$\%$ of which is in the disk with the rest in the bulge of the galaxy.
+
+
+%----------------------------------------------------------------------------------------
+%Metallicity
+%----------------------------------------------------------------------------------------
+\subsection{Metallicity}
+\label{sec:metal}
+ 
+The metallicity of galaxies can be estimated by measuring abundances of heavier elements in their ISM. Assuming gas phase oxygen abundance, $[{\rm O/H}]$, is proportional to abundances of heavier elements, [O/H] would be a gauge to determine metallicity \citep[e.g.][]{McGaugh91, Zaritsky94}. Modelling dust in the Milky Way and nearby galaxies has shown the dust to gas mass ratio to be dependent on $[{\rm O/H}]$ and consequently metallicity \cite{Draine07}. \cite{Draine14} assumed that depletion of elements of gas from the gas to diffuse ISM in M31 is similar to the Milky Way, and proposed that: 
+ \begin{equation*}
+ \label{equ: metal}
+\frac{M_d}{M_H}=0.0091 \frac{Z}{Z_{\odot}}
+ \end{equation*} 
+ where M$_d$ and M$_H$ are the mass of dust and mass of hydrogen atom, $Z$ is the metallicity of M31 and Z$_{\odot}$ is the solar metallicity. \cite{Draine14} produced two dust maps of M31 at the MIPS 160~\um resolution (FWHM 39\arcsec) and SPIRE 350 resolution (FWHM 24\arcsec.9). We used the dust map with SPIRE 350 resolution, convolved and re-gridded to have the same resolution and pixel size of the HI map, then we divided this dust mass by the mass of hydrogen in M31. However, in a private conversation with B. Draine, he mentioned that, based on Planck \cite{Tauber10} observations of the MW dust, the dust mass surface density map estimated for M31 by \cite{Draine14} may be systematically high by a factor of 2. Therefore, we divided the dust map by 2. By using the dust map in combination with equation~\ref{equ: metal} we generated a metallicity map of M31. \cite{Draine14} showed that the dust to H mass ratio declines monotonically with increasing distance from the centre of M31 and concluded that metallicity has the same behaviour. Their fitting results showed that M31 can be divided into three regions where the dust to H mass ratio (or metallicity) have different radial gradients. These three different regions are $R< 8\kpc$, $8\kpc < R < 18\kpc$, and $18\kpc < R \la 25\kpc$ where $R$ is the major-axis distance.
+%----------------------------------------------------------------------------------------
+%SFR LAWS
+%----------------------------------------------------------------------------------------
+\section{Scaling the star formation rate}
+
+\subsection{Fitting method}
+\label{sec:fitting}
+
+%PB150629: axis labels need to be bigger for both this figure and the next one /Sahar: I'm working on it.
+\begin{figure*}
+\centering
+\includegraphics[width=164mm]{Results_for_all_regions.pdf}
+\caption{Results from fitting the Kennicutt-Schmidt law over the whole galaxy pixel-by-pixel. The points in the plots represent 
+different pixel sizes due to differences in the resolution of the H$_2$ and HI maps. Each point in the plots with the surface density of H$_2$ as a tracer of gas mass represents a region of size $\sim30$~pc and each point in the plots with surface density of HI or total gas mass represents a region of size $\sim155$~pc.
+} 
+\label{fig:ks,all}
+\end{figure*}
+
+Producing the SFR, gas mass, stellar mass, and metallicity maps provides enough data to examine and compare the K-S law and the extended Schmidt law. To create surface density maps, we divided the value of each pixel by area of the pixel in pc$^2$. We investigated the K-S law and the extended Schmidt law by using a pixel-by-pixel method over the whole galaxy as well as comparing the laws in three different radial regions of the galaxy. As mentioned in section~\ref{sec:data}, since the H$_2$ gas mass map has higher angular resolution and smaller pixel size compared to the HI gas mass map, our final results have two sets of different pixel sizes. Consequently, any plots with surface density of H$_2$ as a tracer of the gas mass will have more data points. 
+
+
+We can re-write equations~\ref{equ:ks_org}~and~\ref{equ:es_org} in a logarithmic scale. This gives two linear equations:
+\begin{subequations}
+\begin{equation}
+\label{eq:sfr_law_ks_log}
+\log_{10} \eqsigmasfr = N~\log_{10} \eqsigmagas + A
+\end{equation}
+\begin{equation}
+\label{eq:sfr_law_es_log}
+\log_{10} \eqsigmasfr = \eqnprime~\log_{10} \eqsigmagas + \beta~\log_{10}\eqsigmastar  + A^\prime
+\end{equation}
+\end{subequations}
+where {\it N}, $\eqnprime$, $\beta$, A, and A$^\prime$ are free parameters to be fit. The units in the equations above are the same as the units in equations ~\ref{equ:ks_org} and ~\ref{equ:es_org}.
+
+We found the free parameters by applying the hierarchical Bayesian linear regression method as described in \cite{Shetty13}. Shetty and his colleagues used a Bayesian linear regression approach to develop a new method to find the K-S law parameters. This method considers the measurement uncertainties as well as hierarchical data structure. We used the same technique as in \cite{Shetty13} to estimate the K-S law parameters. For the extended Schmidt law, we extended the code in so that, instead of using simple linear regression, which is the case for the K-S law, it uses multiple linear regression. In this case, we were able to examine the effect of the stellar mass on the SFR as shown in equation ~\ref{eq:sfr_law_es_log}. 
+
+Uncertainties on each observable quantity were measured by following the method described in \cite{Kennicutt07}. We used the quadratic sum of variance of the local background of each luminosity map (from the original pixel size images), the Poisson noise of images, and calibration uncertainties. Since we used pixel-by-pixel fitting instead of using aperture photometry, we do not consider the photometric uncertainties due to background subtraction.
+We also test each law on three different regions introduced in~\ref{sec:metal}. Applying the SFR laws in these regions provides a tool to consider the effect of the distance from the centre of the galaxy on SFR parameters such as metallicity, gas mass, stellar mass gradients, and changes in the ratio of H$_2$ to HI. 
+
+\subsection{Star formation laws}
+\label{sec: sfl}
+
+We made three SFR maps, three gas mass density maps, and a stellar mass density map of M31. We applied both laws on the whole galaxy using each combination of SFR and gas mass density map, along with applying the laws on three different regions. \cite{Kennicutt12} reviewed star formation in the MW and the nearby galaxies and described that there might be a breakdown of SFR laws for small regions. Therefore, we re-gridded all the maps to have a pixel size equivalent to 750~pc, and repeated all of our processes on these new maps (table~\ref{table:res750}). Additionally, we used these results to see if there is any correlation between the SFR laws and metallicity, as will be described in Section~\ref{sec:fitting}. %Moreover, since M31 has high inclination angle (i = 77$\degr$.5), to study an effect of inclination angle to our results, we test the SFR laws on face-on maps of M31 . Additionally, we used these results to see if there is any correlation between the SFR laws and metallicity, as it is going to be described in ~\ref{sec:fitting}.
+%PB150629: need to describe how you got face-on maps. Also mention that we know that a full correction for the effects of inclination would require radiative transfer modelling, which is beyond the scope of this paper %We decide to not talk about face on at all.
+ 
+\begin{figure*}
+\includegraphics[width=164mm]{Results_all_3_regs.pdf}
+\caption{Same as Figure~\ref{fig:ks,all}, but in this figure pixels from different regions in the galaxy are colour-coded: regions with $R< 8\kpc$, $8\kpc < R < 18\kpc$, and $18\kpc < R \la 25\kpc$ are shown in red, green and blue, respectively.}
+\end{figure*}
+
+%PB: no space, so SFR(TIR)
+Figure~\ref{fig:ks,all} shows the pixel-by-pixel fitting of the K-S law over the whole galaxy. The first row of plots show the surface density of the SFR(TIR) (Section~\ref{sec:sfr_fir}) versus the gas surface density traced by only the molecular gas (H$_2$),  only atomic gas (HI), and total gas, from right to left, respectively. The other rows show the same gas tracers in the same order but with the SFR indicator being FUV plus 24 $\mu$m (second row), and \halpha plus 24 $\mu$m emission (third row). Figure~\ref{fig:ks,regs} shows the same data as figure~\ref{fig:ks,all}. However, in this figure we separated pixels from different regions in the galaxy by their colours. There is a deviation in the middle panel plots of Figure~\ref{fig:ks,all} which shows a set of points with high star formation rate and low HI gas. These deviating points belong to regions further than 8~kpc from the centre (Figure~\ref{fig:ks,regs}). The HI surface density profile of M31 \citep[figure 16 in][]{Chemin09} shows several local minima from the centre of M31 to 30~kpc distance, which could be a result of the HI wrap. Some of these minima are around the rings area of M31, which have higher SFR compared to the other regions in the galaxy. Since the total gas mass is calculated by adding HI and H$_2$ gas mass, we can see these deviations on right panel of Figure~\ref{fig:ks,all} as well. However, since we have high H$_2$ emission in those regions these deviations are less pronounced than in the middle panel.  
+
+We took a similar approach for the extended Schmidt law. Figures~\ref{fig:es,all}-~\ref{fig:es,regs,halpha,tot} show the results of the pixel-by-pixel fitting of the extended Schmidt law. For the extended Schmidt law fits, we plotted our results in three dimensions to illustrate the relationship between the surface density of the SFR, the gas mass surface density, and stellar mass density more clearly. In this series of plots, the $x$-axis is the gas mass surface density, either molecular gas (H$_2$), the atomic gas (HI), or the total gas, the $y$-axis is the SFR(TIR) or SFR(FUV + 24 $\mu$m), and the $z$-axis is the stellar mass surface density. Shadows of our data on each surface are also plotted, to have a more clear picture of the correlations between components. Shadows on the $x-y$ surface are the same as Figure~\ref{fig:ks,all}. 
+
+\begin{figure*}
+    \centering
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{es_tot_fir_vs_h2_22.png}
+        \caption{SFR,TIR vs surface density of H$_2$}
+        \label{fig:es,all,fir,h2}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{es_tot_fir_vs_hi2.png}
+        \caption{SFR,TIR vs surface density of HI}
+        \label{fig:es,all,fir,hi}
+    \end{subfigure}
+    \hfill
+   \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{es_tot_fir_vs_tot2.png}
+        \caption{SFR,TIR vs surface density of total gas}
+        \label{fig:es,all,fir,tot}
+    \end{subfigure}
+    \hfill
+     \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{es_tot_fuv_vs_h22.png}
+        \caption{SFR,FUV+24 $\mu$m vs surface density of H$_2$}
+        \label{fig:es,all,fuv,h2}
+    \end{subfigure}
+     \hfill
+   \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{es_tot_fuv_vs_hi2.png}
+        \caption{SFR,FUV+24 $\mu$m vs surface density of HI}
+        \label{fig:es,all,fuv,hi}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{es_tot_fuv_vs_tot2.png}
+        \caption{SFR,FUV+24 $\mu$m vs. surface density of total gas}
+        \label{fig:es,all,fuv,tot}
+    \end{subfigure}
+    \hfill
+     \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{es_tot_halpha_vs_h22.png}
+        \caption{SFR,H$\alpha$+24 $\mu$m vs surface density of H$_2$}
+        \label{fig:es,all,halpha,h2}
+    \end{subfigure}
+     \hfill
+   \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{es_tot_halpha_vs_hi2.png}
+        \caption{SFR,H$\alpha$+24 $\mu$m vs surface density of HI}
+        \label{fig:es,all,halpha,hi}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{es_tot_halpha_vs_tot2.png}
+        \caption{SFR,H$\alpha$+24 $\mu$m vs. surface density of total gas}
+        \label{fig:es,all,halpha,tot}
+    \end{subfigure}
+    \caption{Results from fitting the extended Schmidt law over the whole galaxy pixel-by-pixel. The plots show the SFR versus the surface density of gas and the surface density of stellar mass. Each panel shows a different combination of SFR tracer and gas mass tracer. As in Figure~\ref{fig:ks,all}, the analyses use different pixel sizes. Each point in the plots with the surface density of H$_2$ as a tracer of gas mass represents a region of size $\sim30$~pc and each point in plots with surface density of HI or total gas mass represent a region of size $\sim155$~pc.}
+    \label{fig:es,all}
+\end{figure*}
+
+
+
+\begin{figure*}
+\centering
+\includegraphics[width=162mm]{tir_vs_tot_3_reg_extendS.png}
+\caption{Fitting result for SFR(TIR) versus total gas. Same as Figure~\ref{fig:es,all,fir,tot}, but in this figure pixels from different regions in the galaxy are colour-coded: regions with $R< 8\kpc$, $8\kpc < R < 18\kpc$, and $18\kpc < R \la 25\kpc$ are shown in red, green and blue, respectively.}
+\label{fig:es,regs,fir,tot}
+\end{figure*}
+
+\begin{figure*}
+\centering
+\includegraphics[width=162mm]{fuv_vs_tot_3_reg_extendS.png}
+\caption{Fitting result for SFR(FUV + 24 $\mu$m) versus total gas. Same as Figure~\ref{fig:es,all,fuv,tot}, but in this figure pixels from different regions in the galaxy are colour-coded: regions with $R< 8\kpc$, $8\kpc < R < 18\kpc$, and $18\kpc < R \la 25\kpc$ are shown in red, green and blue, respectively.}
+\label{fig:es,regs,fuv,tot}
+\end{figure*}
+
+\begin{figure*}
+\centering
+\includegraphics[width=162mm]{halpha_vs_tot_3_reg_extendS_97perse.png}
+\caption{Fitting result for SFR(H$\alpha$ + 24 $\mu$m) versus total gas. Same as Figure~\ref{fig:es,all,halpha,tot}, but in this figure pixels from different regions in the galaxy are colour-coded: regions with $R< 8\kpc$, $8\kpc < R < 18\kpc$, and $18\kpc < R \la 25\kpc$ are shown in red, green and blue, respectively.}
+\label{fig:es,regs,halpha,tot}
+\end{figure*}
+
+
+\begin{table*}
+\caption{Fitting parameters of M31 star formation laws from applying the Bayesian method.} 
+%PB150708: following sentence should be in text, not be in table caption
+%Given the data and the uncertainties, I am 97.5\% confident in our results
+\label{table:res}
+\begin{tabular}{ccccrccrr}
+\hline\hline
+\multicolumn{1}{c}{\multirow{1}{*}{Region}} & SFR Tracer        & Gas Tracer & {\it N}    & A      & \nprime & $\beta$ & A$^\prime$ \\
+\hline
+\multicolumn{1}{c}{\multirow{9}{*}{Whole Galaxy}} & TIR               & H$_2$ only & 1.05 & -8.98  & 0.97    & 0.35    & -9.53      \\
+ & TIR               & HI only    & 1.19 & -9.69  & 0.79    & 0.75    & -10.56     \\
+ & TIR               & Total gas  & 0.82 & -9.84  & 0.51    & 0.56    & -10.40     \\
+ & FUV + 24 $\mu$m       & H$_2$ only & 1.16 & -9.36  & 1.15    & 0.25    & -9.74      \\
+ & FUV + 24 $\mu$m       & HI only    & 1.19 & -9.96  & 0.81    & 0.61    & -10.62     \\
+ & FUV + 24 $\mu$m       & Total gas  & 0.78 & -10.09 & 0.49    & 0.45    & -10.50     \\
+ & H$\alpha$ + 24 $\mu$m & H$_2$ only & 1.16 & -9.26  & 1.07    & 0.38    & -9.86      \\
+ & H$\alpha$ + 24 $\mu$m & HI only    & 0.54 & -9.61  & 0.53    & 0.76    & -10.69     \\
+ & H$\alpha$ + 24 $\mu$m & Total gas  & 0.54 & -9.82  & 0.37    & 0.59    & -10.55     \\
+\hline
+\multicolumn{1}{c}{\multirow{9}{*}{R$< 8\kpc$}} & TIR               & H$_2$ only & 1.01 & -8.95  & 0.92    & 0.36    & -6.66      \\
+ & TIR               & HI only    & 1.63 & -9.93  & 1.14    & 0.65    & -10.38     \\
+ & TIR               & Total gas  & 1.07 & -9.99  & 0.87    & 0.41    & -10.21     \\
+ & FUV + 24 $\mu$m       & H$_2$ only & 1.07 & -9.30  & 1.03    & 0.18    & -9.62      \\
+ & FUV + 24 $\mu$m       & HI only    & 1.29 & -10.06 & 1.02    & 0.45    & -10.34     \\
+ & FUV + 24 $\mu$m       & Total gas  & 0.89 & -10.12 & 0.81    & 0.21    & -10.18      \\
+ & H$\alpha$ + 24 $\mu$m & H$_2$ only & 1.14 & -9.23  & 1.03    & 0.41    & -6.47      \\
+ & H$\alpha$ + 24 $\mu$m & HI only    & 1.29 & -9.56  & 0.96    & 1.54    & -11.10     \\
+ & H$\alpha$ + 24 $\mu$m & Total gas  & 0.90 & -9.99  & 0.65    & 1.27    & -10.88    \\
+\hline
+\multicolumn{1}{c}{\multirow{9}{*}{$8\kpc < $R $< 18\kpc$}} & TIR               & H$_2$ only & 1.08 & -8.90  & 1.00    & 0.40    & -9.59      \\
+ & TIR               & HI only    & 1.16 & -9.58  & 0.84    & 0.77    & -10.53     \\
+ & TIR               & Total gas  & 0.79 & -9.77  & 0.50    & 0.58    & -10.38     \\
+ & FUV + 24 $\mu$m       & H$_2$ only & 1.21 & -9.28  & 1.15    & 0.31    & -9.82      \\
+ & FUV + 24 $\mu$m       & HI only    & 1.19 & -9.88  & 0.85    & 0.63    & -10.61     \\
+ & FUV + 24 $\mu$m       & Total gas  & 0.75 & -10.04 & 0.47    & 0.47    & -10.47     \\
+ & H$\alpha$ + 24 $\mu$m & H$_2$ only & 1.18 & -9.18  & 1.09    & 0.41    & -9.88      \\
+ & H$\alpha$ + 24 $\mu$m & HI only    & 0.56 & -9.49  & 0.72    & 0.81    & -10.67     \\
+ & H$\alpha$ + 24 $\mu$m & Total gas  & 0.52 & -9.71  & 0.40    & 0.61    & -10.47  \\
+\hline
+\multicolumn{1}{c}{\multirow{9}{*}{$18\kpc <$ R $\la 25\kpc$}} & TIR               & H$_2$ only & 2.08 & -8.76  & 1.81    & 1.32    & -5.82      \\
+ & TIR               & HI only    & 1.30 & -9.68  & 0.83    & 0.78    & -10.54     \\
+ & TIR               & Total gas  & 0.86 & -9.83  & 0.55    & 0.57    & -10.38     \\
+ & FUV + 24 $\mu$m       & H$_2$ only & 2.87 & -9.18  & 2.89    & 1.49    & -11.33     \\
+ & FUV + 24 $\mu$m       & HI only    & 1.27 & -9.95  & 0.85    & 0.64    & -10.63     \\
+ & FUV + 24 $\mu$m       & Total gas  & 0.80 & -10.08 & 0.52    & 0.48    & -10.49     \\
+ & H$\alpha$ + 24 $\mu$m & H$_2$ only & 2.86 & -9.05  & 3.12    & 1.30    & -10.86     \\
+ & H$\alpha$ + 24 $\mu$m & HI only    & 0.63 & -9.62  & 0.44    & 0.81    & -10.62     \\
+ & H$\alpha$ + 24 $\mu$m & Total gas  & 0.60 & -9.84  & 0.39    & 0.66    & -10.52     \\
+ \hline
+\end{tabular}
+\end{table*}
+
+
+
+\begin{table*}
+\caption{Fitting parameters of M31 star formation laws, performed on regions with size of 750~pc.}
+\label{table:res750}
+\begin{tabular}{ccccrccrr}
+\hline\hline
+\multicolumn{1}{c}{\multirow{1}{*}{Region}} & SFR Tracer  & Gas Tracer & {\it N} & A  & \nprime & $\beta$ & A$^\prime$ \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{Whole Galaxy}}
+ & FUV + 24 $\mu$m       & H$_2$ only & 2.18(1.33) & -11.91(-13.06)  & 1.87(1.00)  & 0.58(0.39) &  -2.81(-12.72)   \\
+ & FUV + 24 $\mu$m       & HI only    & 1.24 & -11.36  & 0.85    & 0.65    & -11.60     \\
+ & FUV + 24 $\mu$m       & Total gas  & 0.89 & -9.94 & 0.52    & 0.49    & -10.48     \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{R$< 8\kpc$}}
+ & FUV + 24 $\mu$m       & H$_2$ only & 1.97 & -10.86 & 3.34(0.52)    & 0.64(0.37)    & -10.57(-11.35)      \\
+ & FUV + 24 $\mu$m       & HI only    & 1.73 & -10.88 & 1.03    & 1.42    & -10.52     \\
+ & FUV + 24 $\mu$m       & Total gas  & 0.88 & -9.94 & 1.45    & 0.83    & -9.11      \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{$8\kpc < $R $< 18\kpc$}}
+ & FUV + 24 $\mu$m       & H$_2$ only & 2.02 & -8.43  &    1.83     &  0.78       &   -9.16         \\
+ & FUV + 24 $\mu$m       & HI only    & 1.38 & -11.06  & 1.26    & 0.65    & -11.33     \\
+ & FUV + 24 $\mu$m       & Total gas  & 0.80 & -10.00 & 0.72    & 0.53    & -10.17     \\
+\hline
+\multicolumn{1}{c}{\multirow{3}{*}{$18\kpc <$ R $\la 25\kpc$}} 
+ & FUV + 24 $\mu$m       & H$_2$ only & 1.50 (4.30) & -11.00(-1.02)  &  5.35    & 4.10    & -10.22   \\
+ & FUV + 24 $\mu$m       & HI only    & 1.46 & -10.73  & 1.05    & 0.84    & -11.44     \\
+ & FUV + 24 $\mu$m       & Total gas  & 0.85 & -9.86 & 0.58    & 0.66    & -10.26     \\
+ \hline
+\end{tabular}
+\tablecomments{Values inside the brackets are mean values.}
+\end{table*}
+
+
+
+%----------------------------------------------------------------------------------------
+%
+%----------------------------------------------------------------------------------------
+\section{Results and discussion}
+
+Table~\ref{table:res} shows the results of the hierarchical Bayesian fit with 97.5\% confidence for the whole galaxy and the different regions. Our results suggest that changing the gas tracer has more effect on the final results than changing between the SFR tracers. Therefore, we only interpret the results from the SFR(FUV+24$\mu$m), and in~\ref{table:res750} we only show results from this SFR map.
+
+\subsection{The Kennicutt-Schmidt law in M31}
+
+As mentioned before, the K-S law in M31 has been tested by many groups. In one of the most recent works on M31, \cite{Ford13} investigated the K-S law in six annuli and the global case using the ordinary least squares (OLS) fitting method. To make comparisons between our results easier, we averaged the power-law index indices for their annuli which overlap with our three different regions so we could compare results in the same regions.
+\cite{Tabatabaei10} also applied the K-S law to M31 using the OLS fitting method; their results have some differences with results from \cite{Ford13}. The cut-off used by \cite{Ford13} to fit the data is argued by those authors to be the main reason for these differences.
+ 
+Our results for the whole-galaxy fit of the K-S law show that using total gas gives a sub-linear relation between \sigmasfr and \sigmatotalgas. Using the H$_{2}$-only gas or HI-only gas we find a nearly super-linear relation. Our results differ from the power-law indices estimated by \cite{Ford13}, $N=2.03\pm0.04$ in the case of total gas and $N=0.6\pm0.01$ in the case of H$_{2}$-only gas. \cite{Tabatabaei10} found a K-S law power-law index $N=1.30\pm0.05$ using total gas and $N=0.96\pm0.03$ using H$_{2}$-only gas. The reason for these differences is mostly the statistical method we chose.  OLS fitting using \sigmatotalgas gives a power-law index of $N=1.20\pm0.10$ which is in good agreement with the \cite{Tabatabaei10} results. The difference from the \cite{Ford13} results could be for the same reason \cite{Ford13} suggested to explain the discrepancy between their results and those of  \cite{Tabatabaei10}. Another difference between our calculation and that of \cite{Ford13} and \cite{Tabatabaei10} is that both groups used de-projected values for their calculation, obtained by multiplying all of their maps by a factor of $\cos(i)$, the inclination angle. We did not include the effect of the inclination angle in our results. %PB150708: do we need to justify why?
+
+In studies of other nearby galaxies, \cite{Bigiel08} argued that there is no universal relationship between the surface density of the total gas and the SFR. They also showed that the SFR and the molecular hydrogen have a linear relationship. \cite{Shetty13} used the same data as \cite{Bigiel08} and argued that using the hierarchical Bayesian fit leads to significant galaxy-by-galaxy variation in power-law indices, with all of their values being lower than those of \cite{Bigiel08}. Although some of our results showed the linear correlation between the SFR and the molecular hydrogen, we could not find any specific trend between power-law indices in the different regions. 
+
+The sub-linear power-law index in the case of the total gas surface density suggests that the star formation efficiency is decreasing (or, the depletion time is increasing) as the total gas increases. On the contrary, a super-linear relation suggests that the depletion time is decreasing with an increasing amount of CO or/and HI gas. The latter conclusion is more similar to the initial suggestion of the K-S law. If we assume that stars form in the molecular clouds, a decrease of SFE with increasing total gas is justifiable.  
+
+The results of the hierarchical Bayesian fitting on the regions with different distances from the centre of the galaxy are similar to the fits to the whole galaxy data. For all three regions, the K-S law using the total gas leads to sub-linear relation between the SFR and the surface density of gas. Likewise, for the H$_{2}$-only gas or HI-only gas, this relationship is either linear or nearly super-linear. These results agree with those from the models of \cite{Krumholz09}. They showed that for regions with \sigmagas $\leq 100$~M$_{\odot}$~pc$^{-2}$, \sigmasfr and $\Sigma_{H_2}$ have a nearly linear correlation. They also conclude that, at the intermediate total gas column density (\sigmagas $\leq 100$ M$_{\odot}$pc$^{-2}$), \sigmasfr and \sigmagas have a linear or slightly sub-linear correlation which is similar to our results. However, they also showed the SFR has a dependency on galaxy metallicity which we do not see in M31 (Figure~\ref{fig:metal}). 
+
+The K-S law power-law index varies with the distance from the centre of the galaxy. Similar to results from \cite{Ford13}, we find that the power-law index increases at further distances from the centre of the galaxy considering molecular gas only. The power-law index using total gas or atomic gas does not show any particular correlation with distance. The increase of the power-law index for molecular gas only may be an effect of the decreasing metallicity across the galaxy or other physical properties of the galaxy such as stellar mass (see section ~\ref{sec:es_res}).
+
+%As mentioned in section~\ref{sec:sfl}, we changed the pixel sizes to be 750~pc to investigate the K-S law 
+  
+\subsection{The extended Schmidt law in M31}
+\label{sec:es_res}
+The extended Schmidt law is a recent proposal by \citep{Shi11} which predicts a tight correlation between SFR, total gas surface density, and stellar mass surface density. Our results from fitting this law to data from the whole galaxy (**WHERE?) show a sub-linear relation 
+between \sigmasfr and \sigmastars.
+Using only atomic gas, we find values in good agreement with the original suggestion of the extended Schmidt law $\eqnprime = 0.8 \pm 0.01$ and $\beta = 0.62\pm0.01$. However, $\beta$ is much smaller when using the other two gas tracers. Using the total gas mass, we find $\eqnprime$ to be very close to $\beta$. This relation suggests that, although increasing the total gas causes a decrease of the SFE,  the existing stars will increase the SFE. 
+
+The fitting results on the three regions (**WHERE?) are the same as for the whole galaxy. Taking the average $\beta$ for the fits using molecular gas only gives us $\beta = 0.66$, in good agreement with \cite{Shi11}, but $\eqnprime$ is almost twice that of the original suggestion. However, the final indices reported by \cite{Shi11} for the extended Schmidt law are an average over 12 different spiral galaxies, and some of their individual galaxies (e.g. NGC 4736, NGC 4726) have similar values to M31. 
+Similar to the K-S law, the extended Schmidt law results are sensitive to the fitting method. Using OLS fitting, one only will consider the SFR errors, nevertheless, the hierarchical Bayesian regression fitting considers uncertainties on all the parameters.
+%PB150708: not happy with this paragraph and next ***
+ 
+We can conclude that the stars affect the SFR, especially in the regions with lower amounts of gas. \cite{Kim13}, using 3D numerical hydrodynamic simulations, showed that in the outer disk regions of a galaxy  where the total gas is dominated by HI, the SFR correlates with $\rho_{sd}^{0.5}$, the mid-plane density of the stellar disk plus dark matter. This is because in the outer regions of the disk, the gravity from stars dominates. This results are in agreement with our finding that in the outer regions of M31, the stellar surface density has more effect on the SFR.
+
+\section{Metallicity}
+%PB150708: this paragraph is hard to understand
+%after meeting: more details,
+It is well established that M31 has a radial metallicity gradient \citep[e.g.][]{Draine14}. The expected inverse relation between metallicity and X-factor, described in Section~\ref{sec:intro}, suggests that K-S power-law indices could be underestimated in the case of molecular gas only and total gas. Correcting for this effect would make our results closer to the original suggestion for the K-S law ($\lt N \sim 1.6$). Moreover, the models of \cite{Krumholz09} showed that a correlation between SFR and metallicity strongly depends on the total amount of gas in galaxies. We do not see any correlation between the SFR and metallicity in sub-kiloparsec regions (Figure~\ref{fig:metal}). We estimated the SFR using \cite{Krumholz09} star formation rate for regions with size of $\sim$750~pc, using an average value of metallicity 
+%PB150708: exactly what value of metallicity? don't need the statement about range
+%(metallicity of M31 is estimated to be from $Z/Z_{\odot} \sim 3$ at $R = 0$ to $\sim 0.3$ at $R = 25$~kpc \citep{Draine14}) 
+and a clumping factor of 1.2.
+We found that the SFR calculated using the Krumholz law differs by 34--40\% from the measured SFR.  A through calculation is needed to solve the issue of this controversy which is beyond the scope of this paper.  %PB150708: don't like preceding sentence.
+
+ \cite{Mannucci10} and \cite{Lilly13} assumed the K-S law holds for their sample of study and obtained a correlation between metallicity and the stellar mass, the gas mass and the SFR. They found that increasing both the SFR and the stellar mass increases metallicity, but increasing the gas mass decreases metallicity \citep[equation 9 in][]{Mannucci10}. However, by considering results from \cite{wong13} regarding the dependence of rate of HI-H$_2$ conversion on metallicity, \cite{Roychowdhury15} showed that the KS law is independent of metallicity in galaxies with HI as a dominant gas. In Figure~\ref{fig:metal}, we plot metallicity versus the SFR and the stellar mass, and do not find any correlation.
+
+\begin{figure*}
+\centering
+\includegraphics[width=162mm]{metal2.png}
+\caption{Metallicity versus SFR and stellar mass. Each point shows a region with size of $\sim750$~pc. The regions with $R< 8\kpc$, $8\kpc < R < 18\kpc$, and $18\kpc < R \la 25\kpc$ are shown in red, green and blue, respectively.}
+\label{fig:metal}
+\end{figure*}
+
+%----------------------------------------------------------------------------------------
+%SUMMERY
+%----------------------------------------------------------------------------------------
+% 
+% ***: do we like the numbered business or not?
+\section{Summary}
+1) We investigated the K-S law, the extended Schmidt law and the Krumholz law on both global and local scales in M31.
+
+2) We have determined the surface density of star formation rate, gas mass and stellar mass of this galaxy. We produced three SFR maps in M31. The first uses a combination of the FUV and 24 \um emission. For the second SFR map, we used a combination of the H$\alpha$ and 24 \um emission, and the third one was produced using total-infrared luminosity. We noted that the H$_\alpha$ data available for M31 is not suitable for SFR study ~\ref{app:halpha}. We calculated the total SFR from FUV and 24 \um emission to be 0.31$\pm$ 0.04 M$_{\odot}$yr$^{-1}$. We also produced ISM maps using molecular gas only, atomic gas only and the total gas.
+
+3) We found that the power-law index of the K-S law is more strongly dependent on which gas is used as a tracer of the gas mass. It is mostly independent of the SFR tracer.
+
+4) We showed that using different fitting methods for the K-S law can have a significant effect on the results.
+
+5) Our results showed although there is a correlation between \sigmasfr and \sigmagas, it is not the same in all regions in M31. 
+
+6) We confirmed the suggestion of \cite{Shi11}  that the surface density of stars has an impact on the SFR. In regions with low gas surface brightness this impact is even more important. 
+
+7) We could not find any relation between SFR and metallicity.
+
+
+%----------------------------------------------------------------------------------------
+%Acknowledgement 
+%----------------------------------------------------------------------------------------
+%\section*{Acknowledgement}
+The authors thank R. Shetty for giving us his hierarchical Bayesian fitting code, D. Kruijssen for his ideas about 3-D plots, and L. Chemin for providing us with the HI map. We also want to thank B.T. Draine, P. Massey, K. Sandstrom, and M. Azimlu for their useful suggestions.
+The authors acknowledge research support from the Natural Sciences and Engineering Research Council of Canada and from the Academic Development Fund of the University of Western Ontario. 
+This research made use of Montage, funded by the National Aeronautics and Space Administration's Earth Science Technology Office, Computation Technologies Project, under Cooperative Agreement Number NCC5-626 between NASA and the California Institute of Technology. Montage is maintained by the NASA/IPAC Infra-red Science Archive.
+%----------------------------------------------------------------------------------------
+%BIBLOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\bibliography{ref.bib}
+
+%----------------------------------------------------------------------------------------
+%Appendix
+%----------------------------------------------------------------------------------------
+
+\appendix
+%\section{SFR from H$\alpha$ plus 24 \um process and result}
+\section{H$\alpha$ mosaic and associated star formation rate}
+\label{app:halpha}
+
+
+\begin{figure*}
+\centering
+\includegraphics[width=164mm]{halpha.eps}
+\caption{Mosaic of H$\alpha$ emission in six fields of M31 observed by \cite{Massey07}, created using Montage. For subsequent analysis, the mosaic was continuum-subtracted and point-source masked. The centre of the galaxy was masked out due to saturation of data in the continuum $R$-band image.}
+\label{fig:halpha}
+\end{figure*}
+
+As mentioned in Section~\ref{sec:data}, we used the H$\alpha$ data from the Nearby Galaxies Survey \citep{Massey07} to create one of our SFR maps. These data cover 10 overlapping fields across the disk of M31 in broad and narrow bands in 10 overlapping fields and were observed between August 2000 and September 2002; we obtained them  from the NOAO science archive.
+Making a spatially-resolved SFR map of M31 using H$\alpha$ emission requires removal of background and stellar emission in each field, masking out foreground stars and saturated regions, creating a mosaic of the H$\alpha$ continuum-subtracted map, and finally correcting for the flux contribution to the \halpha filter from the [N II] 6583~\AA line.
+
+$R$-band images were used to remove the stellar emission from the H$\alpha$ images using the scaling factors between fluxes in these two bandpasses determined by \cite{Azimlu11}. Those authors used photometric measurements of stars in both the \halpha and R-band images to determine the scaling factor for each field. These images were obtained from a ground-based telescope over two years' time. Consequently, there is a non-negligible and variable sky contribution in the background which should be estimated and removed from each image in both bands. However, there are no available off-galaxy images with which to measure the sky contribution, making the removal of background emission more difficult. The only choice we were left with is a subtraction of the local background for each field. However, subtracting local backgrounds results in a non-smooth background in the final mosaic image. 
+
+To create the final mosaic, we first removed the background from each region in both \halpha and R-band. Our second step was to subtract the continuum from the \halpha images. Since both \halpha and $R$-band images were aligned on the same coordinate grid, for each field, the $R$-band image multiplied by the scaling factor was subtracted from the \halpha image. Finally we masked out all the foreground and saturated regions which include a $10\arcmin \times 10\arcmin$ region in the centre of the galaxy. In total, nearly 50$\%$ of the pixels in the \halpha map were masked out. %PB150708: is the number still 50%?
+To account for the flux contribution of the [N II] emission we used the flux ratio of the [NII]$/$\halpha $= 0.54$ from \cite{Kennicutt08}
+%PB150708: what did we do with this number? 
+We created the final mosaic image using the Montage program \citep{Berriman08}.
+
+
+%PB150708: do we still need this paragraph?
+Creating the SFR map using \halpha plus 24 \um was described in Section~\ref{sec:sfr_halpha}. In order to investigate the SFR laws, we used the same method of the fitting as Section~\ref{sec:fitting}. The fitting results using SFR(\halpha $+$ 24 \um ) are more or less the same as the other two SFR tracers. The main reason for this difference could is mainly because of lost data in the centre of the galaxy.\halpha data does not have a smooth background. Thus we did not include the SFR(\halpha $+$ 24 \um ) in our final analysis.
+
+
+
+\end{document}
